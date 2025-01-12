@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddnjrbd11q452"]
+
+[ext_resource type="Script" path="res://scenes/menus/leave_game_menu.gd" id="1_nn36c"]
+
+[node name="LeaveGameMenu" type="Node2D"]
+script = ExtResource("1_nn36c")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0.552941, 0, 0.556863, 1)
+
+[node name="Contents" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="Contents"]
+offset_left = 213.0
+offset_top = 186.0
+offset_right = 858.0
+offset_bottom = 318.0
+theme_override_font_sizes/font_size = 96
+text = "Donut Delight"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Contents"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 295.0
+offset_top = 629.527
+offset_right = 753.0
+offset_bottom = 728.527
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.139154
+theme_override_font_sizes/font_size = 72
+text = "Leave Game?"
+horizontal_alignment = 1
+
+[node name="Leave" type="Button" parent="Contents"]
+offset_left = 433.0
+offset_top = 818.527
+offset_right = 627.0
+offset_bottom = 909.527
+theme_override_font_sizes/font_size = 60
+text = "Leave"
+
+[node name="Remain" type="Button" parent="Contents"]
+offset_left = 346.0
+offset_top = 973.527
+offset_right = 709.0
+offset_bottom = 1064.53
+theme_override_font_sizes/font_size = 60
+text = "Remain"
+
+[connection signal="pressed" from="Contents/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="Contents/Remain" to="." method="_on_remain_pressed"]

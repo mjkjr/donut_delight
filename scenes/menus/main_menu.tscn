@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwpwtcxsy6eoi"]
+
+[ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_37dxe"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_37dxe")
+
+[node name="Black" type="ColorRect" parent="."]
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0, 0, 0, 1)
+
+[node name="Contents" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="Contents"]
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0.552941, 0, 0.556863, 1)
+
+[node name="Title" type="Label" parent="Contents"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 316.0
+offset_top = 188.0
+offset_right = 769.0
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 72
+text = "Donut Delight"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="Contents"]
+offset_left = 445.0
+offset_top = 629.0
+offset_right = 550.0
+offset_bottom = 704.0
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
+[node name="Options" type="Button" parent="Contents"]
+offset_left = 529.0
+offset_top = 779.0
+offset_right = 720.0
+offset_bottom = 854.0
+theme_override_font_sizes/font_size = 48
+text = "Options"
+
+[node name="Credits" type="Button" parent="Contents"]
+offset_left = 396.0
+offset_top = 921.0
+offset_right = 568.0
+offset_bottom = 996.0
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+
+[connection signal="pressed" from="Contents/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Contents/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Contents/Credits" to="." method="_on_credits_pressed"]

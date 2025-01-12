@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbv0y58eyjko0"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0agsg"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8ir2r"]
+a = Vector2(0, -400)
+b = Vector2(0, 640)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_eccye"]
+b = Vector2(1080, 0)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_ah47j")
+
+[node name="Black" type="ColorRect" parent="."]
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0, 0, 0, 1)
+
+[node name="Contents" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="Contents"]
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0.552941, 0, 0.556863, 1)
+
+[node name="UI" type="CanvasLayer" parent="Contents"]
+
+[node name="MarginContainer" type="MarginContainer" parent="Contents/UI"]
+offset_right = 1080.0
+offset_bottom = 1920.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Contents/UI/MarginContainer"]
+layout_mode = 2
+
+[node name="Next" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "NEXT:"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 72
+text = "0"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="Contents/UI/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 36
+text = "[ SHOW MERGE SEQUENCE HERE ]"
+horizontal_alignment = 1
+
+[node name="Boundaries" type="Node2D" parent="Contents"]
+unique_name_in_owner = true
+
+[node name="Bottom" type="StaticBody2D" parent="Contents/Boundaries"]
+position = Vector2(540, 1600)
+
+[node name="Line2D" type="Line2D" parent="Contents/Boundaries/Bottom"]
+points = PackedVector2Array(-412, 0, 412, 0)
+default_color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Boundaries/Bottom"]
+shape = SubResource("WorldBoundaryShape2D_0agsg")
+
+[node name="Left" type="StaticBody2D" parent="Contents/Boundaries"]
+position = Vector2(128, 960)
+
+[node name="Line2D" type="Line2D" parent="Contents/Boundaries/Left"]
+points = PackedVector2Array(0, -400, 0, 640)
+default_color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Boundaries/Left"]
+shape = SubResource("SegmentShape2D_8ir2r")
+
+[node name="Right" type="StaticBody2D" parent="Contents/Boundaries"]
+position = Vector2(952, 960)
+
+[node name="Line2D" type="Line2D" parent="Contents/Boundaries/Right"]
+points = PackedVector2Array(0, -400, 0, 640)
+default_color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Boundaries/Right"]
+shape = SubResource("SegmentShape2D_8ir2r")
+
+[node name="Claw" type="Line2D" parent="Contents"]
+unique_name_in_owner = true
+position = Vector2(540, 200)
+points = PackedVector2Array(0, -200, 0, 0)
+default_color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="Area2D" type="Area2D" parent="Contents"]
+position = Vector2(0, 500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Area2D"]
+shape = SubResource("SegmentShape2D_eccye")
