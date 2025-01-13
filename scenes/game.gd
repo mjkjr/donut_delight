@@ -3,7 +3,19 @@ extends Node
 ##
 ## Fades in and starts the game
 
-const DONUT_1 = preload("res://scenes/donut1.tscn")
+const DONUTS = [
+	preload("res://scenes/donuts/donut01.tscn"),
+	preload("res://scenes/donuts/donut02.tscn"),
+	preload("res://scenes/donuts/donut03.tscn"),
+	preload("res://scenes/donuts/donut04.tscn"),
+	preload("res://scenes/donuts/donut05.tscn"),
+	preload("res://scenes/donuts/donut06.tscn"),
+	preload("res://scenes/donuts/donut07.tscn"),
+	preload("res://scenes/donuts/donut08.tscn"),
+	preload("res://scenes/donuts/donut09.tscn"),
+	preload("res://scenes/donuts/donut10.tscn"),
+	preload("res://scenes/donuts/donut11.tscn"),
+]
 
 var player_control_active = false
 var current_item = null
@@ -22,13 +34,6 @@ func _ready() -> void:
 	tween.set_parallel()
 	$Contents/UI/MarginContainer.modulate.a = 0
 	tween.tween_property($Contents/UI/MarginContainer, "modulate", Color(1, 1, 1, 1), 2)
-	
-	#current_item = DONUT_1.instantiate()
-	#current_item_offset = current_item.texture.get_size() * 0.5
-	#current_item.gravity_scale = 0
-	#$Contents.add_child(current_item)
-	#current_item.position.x = %Claw.position.x - current_item_offset.x
-	#current_item.position.y = %Claw.position.y
 	
 	spawn_next_item()
 	make_next_item_current()
@@ -68,8 +73,7 @@ func drop_item() -> void:
 
 
 func spawn_next_item() -> void:
-	## TODO: randomize this
-	next_item = DONUT_1.instantiate()
+	next_item = DONUTS[randi_range(0, 5)].instantiate()
 	next_item.gravity_scale = 0
 	next_item_sprite = Sprite2D.new()
 	next_item_sprite.texture = next_item.texture
@@ -83,7 +87,6 @@ func make_next_item_current() -> void:
 	next_item_sprite.free()
 	current_item = next_item
 	current_item_offset = current_item.texture.get_size() * 0.5
-	#current_item.gravity_scale = 0
 	$Contents.add_child(current_item)
 	current_item.position.x = %Claw.position.x - current_item_offset.x
 	current_item.position.y = %Claw.position.y
