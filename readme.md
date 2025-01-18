@@ -1,4 +1,4 @@
-# Donut Delights
+# 🍩 Donut Delights
 A Donut Merging Game.
 
 ## 🖼️ Screenshots
