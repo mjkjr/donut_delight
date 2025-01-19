@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://pi8eennu0lfr"]
+[gd_scene load_steps=8 format=3 uid="uid://pi8eennu0lfr"]
 
 [ext_resource type="Script" path="res://scenes/menus/credits.gd" id="1_m41ku"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_dbumv"]
 [ext_resource type="Texture2D" uid="uid://cvp8lqpf7gl70" path="res://assets/greg.png" id="2_ksmff"]
 [ext_resource type="PackedScene" uid="uid://ci23incsprkk3" path="res://scenes/greg/greg.tscn" id="3_0lf0l"]
+[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://theme.tres" id="3_2y6nc"]
 [ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="5_o37ff"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xwewd"]
@@ -28,6 +29,7 @@ offset_left = 208.0
 offset_top = 113.0
 offset_right = 853.0
 offset_bottom = 245.0
+theme = ExtResource("3_2y6nc")
 theme_override_font_sizes/font_size = 96
 text = "Donut Delight"
 horizontal_alignment = 1
@@ -38,13 +40,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 291.0
-offset_top = 321.551
-offset_right = 566.0
-offset_bottom = 420.551
+offset_left = 270.0
+offset_top = 349.0
+offset_right = 545.0
+offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.192279
+theme = ExtResource("3_2y6nc")
 theme_override_font_sizes/font_size = 72
 text = "Credits"
 horizontal_alignment = 1
@@ -55,13 +58,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 158.0
-offset_top = 462.0
-offset_right = 903.0
-offset_bottom = 1678.0
+offset_left = 161.0
+offset_top = 507.0
+offset_right = 906.0
+offset_bottom = 1648.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme = ExtResource("3_2y6nc")
 theme_override_font_sizes/font_size = 36
 text = "Design & Code
 Michael J. Kozubal Jr.
@@ -76,6 +80,9 @@ Additional Artwork
 BDragon1727
 Michael J. Kozubal Jr.
 Aurelia Kozubal
+
+Fonts
+Font Squirrel
 
 Sound Effects
 TBD
@@ -92,11 +99,12 @@ horizontal_alignment = 1
 
 [node name="Dismiss" type="Button" parent="Contents"]
 offset_left = 460.0
-offset_top = 1744.55
+offset_top = 1690.0
 offset_right = 602.0
-offset_bottom = 1802.55
+offset_bottom = 1748.0
+theme = ExtResource("3_2y6nc")
 theme_override_font_sizes/font_size = 36
-text = "Dismiss"
+text = "DISMISS"
 
 [node name="TextureRect" type="TextureRect" parent="Contents"]
 visible = false

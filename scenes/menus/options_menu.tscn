@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy5afjyp6vkr8"]
+[gd_scene load_steps=5 format=3 uid="uid://dy5afjyp6vkr8"]
 
 [ext_resource type="Script" path="res://scenes/menus/options_menu.gd" id="1_itb41"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_4by5h"]
+[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://theme.tres" id="3_s503x"]
 [ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="3_w06ke"]
 
 [node name="OptionsMenu" type="Node2D"]
@@ -24,6 +25,7 @@ offset_left = 217.0
 offset_top = 90.0
 offset_right = 862.0
 offset_bottom = 222.0
+theme = ExtResource("3_s503x")
 theme_override_font_sizes/font_size = 96
 text = "Donut Delight"
 horizontal_alignment = 1
@@ -41,6 +43,7 @@ offset_bottom = 412.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.173115
+theme = ExtResource("3_s503x")
 theme_override_font_sizes/font_size = 72
 text = "Options"
 horizontal_alignment = 1
@@ -50,6 +53,7 @@ offset_left = 354.0
 offset_top = 584.0
 offset_right = 790.0
 offset_bottom = 634.0
+theme = ExtResource("3_s503x")
 theme_override_font_sizes/font_size = 36
 text = "Option items will go here"
 
@@ -58,6 +62,7 @@ offset_left = 480.0
 offset_top = 1685.0
 offset_right = 626.0
 offset_bottom = 1776.0
+theme = ExtResource("3_s503x")
 theme_override_font_sizes/font_size = 60
 text = "Back"
 

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cbs1608u20kwu"]
+
+[ext_resource type="FontFile" uid="uid://cke67unuocwpa" path="res://assets/fonts/concert-one/concertone-regular.ttf" id="1_hd677"]
+
+[resource]
+Button/fonts/font = ExtResource("1_hd677")
+Label/fonts/font = ExtResource("1_hd677")

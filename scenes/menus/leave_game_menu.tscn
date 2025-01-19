@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddnjrbd11q452"]
+[gd_scene load_steps=6 format=3 uid="uid://ddnjrbd11q452"]
 
 [ext_resource type="Script" path="res://scenes/menus/leave_game_menu.gd" id="1_nn36c"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_pd6i1"]
 [ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="3_q83c2"]
+[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://theme.tres" id="3_rj4yt"]
 [ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="4_8nfu0"]
 
 [node name="LeaveGameMenu" type="Node2D"]
@@ -25,6 +26,7 @@ offset_left = 213.0
 offset_top = 186.0
 offset_right = 858.0
 offset_bottom = 318.0
+theme = ExtResource("3_rj4yt")
 theme_override_font_sizes/font_size = 96
 text = "Donut Delight"
 horizontal_alignment = 1
@@ -42,6 +44,7 @@ offset_bottom = 728.527
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.139154
+theme = ExtResource("3_rj4yt")
 theme_override_font_sizes/font_size = 72
 text = "Leave Game?"
 horizontal_alignment = 1
@@ -51,6 +54,7 @@ offset_left = 433.0
 offset_top = 818.527
 offset_right = 627.0
 offset_bottom = 909.527
+theme = ExtResource("3_rj4yt")
 theme_override_font_sizes/font_size = 60
 text = "Leave"
 
@@ -59,6 +63,7 @@ offset_left = 346.0
 offset_top = 973.527
 offset_right = 709.0
 offset_bottom = 1064.53
+theme = ExtResource("3_rj4yt")
 theme_override_font_sizes/font_size = 60
 text = "Remain"
 

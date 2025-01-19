@@ -21,7 +21,7 @@ https://mjkjr.itch.io/  TBD
 - Additional Artwork: [BDragon1727](https://bdragon1727.itch.io)
 - Additional Artwork: Michael J. Kozubal Jr.
 - Additional Artwork: Aurelia Kozubal
-- Fonts: TBD
+- Fonts: Font [Squirrel](https://www.fontsquirrel.com/)
 - Sound Effects: [JDSherbert](https://jdsherbert.itch.io/)
 - Additional Sound Effects: Michael J. Kozubal Jr.
 - Background Music: [Jeremy Leaird-Koch / Red Means Recording](https://jjbbllkk.itch.io/)

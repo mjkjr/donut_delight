@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=35 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://4wfc3r6u4rqy" path="res://assets/fire_467.png" id="3_fvm45"]
 [ext_resource type="Texture2D" uid="uid://bn1jw1vj0yjr8" path="res://assets/objects/donut02.png" id="3_mdcg7"]
 [ext_resource type="Texture2D" uid="uid://g13wmm8gufar" path="res://assets/objects/donut03.png" id="4_17w03"]
+[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://theme.tres" id="4_uwju3"]
 [ext_resource type="Texture2D" uid="uid://cx88st4cww3sc" path="res://assets/objects/donut04.png" id="5_svgom"]
 [ext_resource type="Texture2D" uid="uid://tbusx4kyunya" path="res://assets/objects/donut05.png" id="6_qhko1"]
 [ext_resource type="Texture2D" uid="uid://bt21eycdvn2vn" path="res://assets/objects/donut06.png" id="7_yqnpx"]
@@ -303,42 +304,61 @@ theme_override_constants/margin_bottom = 50
 [node name="HBoxContainer" type="HBoxContainer" parent="Contents/UI/MarginContainer"]
 layout_mode = 2
 
-[node name="Next" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer1" type="VBoxContainer" parent="Contents/UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="NextLabel" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer1"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 0
+theme = ExtResource("4_uwju3")
 theme_override_font_sizes/font_size = 36
-text = "NEXT:"
+text = "NEXT"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents/UI/MarginContainer/HBoxContainer"]
+[node name="Next" type="TextureRect" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Contents/UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
 
-[node name="ScoreLabel" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("4_uwju3")
 theme_override_font_sizes/font_size = 36
-text = "Score: "
+text = "SCORE"
 horizontal_alignment = 2
 
-[node name="Score" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Score" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme = ExtResource("4_uwju3")
 theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 2
 
-[node name="HighScoreLabel" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HighScoreLabel" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("4_uwju3")
 theme_override_font_sizes/font_size = 36
-text = "High Score: "
+text = "HIGH SCORE"
 horizontal_alignment = 2
 
-[node name="HighScore" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HighScore" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("4_uwju3")
 theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 2

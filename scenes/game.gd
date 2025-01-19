@@ -21,6 +21,8 @@ extends Node
 
 ## ATTENTION: Finish Title card
 
+## TODO: Spawn trail behind snail
+
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
 
@@ -49,7 +51,7 @@ var current_item_offset: Vector2
 
 var next_item: Node2D = null
 var next_item_index: int
-var next_item_sprite: Sprite2D = null
+#var next_item_sprite: Sprite2D = null
 
 # keeps track of objects in play
 # each element is a Dictionary with the following structure:
@@ -129,7 +131,6 @@ func drop_item() -> void:
 
 
 func make_next_item_current() -> void:
-	next_item_sprite.free()
 	current_item = next_item
 	current_item_offset = current_item.get_node("SoftBody2D").texture.get_size() * 0.5
 	%Gameplay.add_child(current_item)
@@ -148,12 +149,7 @@ func spawn_next_item() -> void:
 	next_item_index = randi_range(0, 5)
 	next_item = OBJECTS[next_item_index].instantiate()
 	next_item.get_node("SoftBody2D").gravity_scale = 0
-	next_item_sprite = Sprite2D.new()
-	next_item_sprite.texture = next_item.get_node("SoftBody2D").texture
-	next_item_sprite.scale = Vector2(0.5, 0.5)
-	%Gameplay.add_child(next_item_sprite)
-	next_item_sprite.position.x = 100
-	next_item_sprite.position.y = 175
+	%Next.texture = next_item.get_node("SoftBody2D").texture
 
 
 func resolve_collision(object1: Node, object2: Node) -> void:
