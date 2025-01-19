@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://bvbofxnfac3pa"]
 
-[ext_resource type="Texture2D" uid="uid://bt21eycdvn2vn" path="res://assets/donut06.png" id="1_41gns"]
+[ext_resource type="Texture2D" uid="uid://bt21eycdvn2vn" path="res://assets/objects/donut06.png" id="1_41gns"]
 [ext_resource type="Script" path="res://addons/softbody2d/softbody2d.gd" id="2_j3g62"]
 
 [sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_8qiu2"]

@@ -17,23 +17,24 @@ offset_right = 1080.0
 offset_bottom = 1920.0
 color = Color(0.552941, 0, 0.556863, 1)
 
-[node name="Label" type="Label" parent="Contents"]
-offset_left = 139.0
-offset_top = 540.0
-offset_right = 965.0
-offset_bottom = 1077.0
+[node name="MarginContainer" type="MarginContainer" parent="Contents"]
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="Title" type="Label" parent="Contents/MarginContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 96
-text = "TODO:
-DONUT DELIGHTS
-TITLE CARD
-HERE"
+text = "DONUT DELIGHT"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Contents"]
-offset_left = 286.0
-offset_top = 1714.0
-offset_right = 847.0
-offset_bottom = 1797.0
+[node name="Studio" type="Label" parent="Contents/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 60
-text = "a [studio tbd] game"
+text = "an mjkjr game"
 horizontal_alignment = 1

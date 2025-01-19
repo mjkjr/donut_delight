@@ -1,18 +1,36 @@
 extends Node2D
-## Credits Screen
-##
-## Fades in and displays the game's credits
+
+const GREG = preload("res://scenes/greg/greg.tscn")
+
+var greg_spawn_position: Vector2
+
 
 func _ready() -> void:
-	# set the initial alpha to fully transparent
+	# set the initial alpha to fully transparent then fade in
+	$Background.modulate.a = 0
 	$Contents.modulate.a = 0
-	# fade the scene alpha in
 	var tween = get_tree().create_tween()
-	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 2)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property($Background, "modulate", Color(1, 1, 1, 1), 0.5)
+	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 0.5)
+	# save Greg's spawn position
+	greg_spawn_position = $Contents/Greg.position
+	if get_tree().paused:
+		$Contents/Greg.position.x = 1000
 
 
-# fade out and self-destruct
 func _on_dismiss_pressed() -> void:
+	$Audio/Dismiss.play()
+	# fade out and self-destruct
 	var tween = get_tree().create_tween()
-	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 0), 1)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_property($Background, "modulate", Color(1, 1, 1, 0), 0.5)
 	tween.tween_callback(queue_free)
+
+
+func _on_greg_off_screen() -> void:
+	var greg = GREG.instantiate()
+	greg.off_screen.connect(_on_greg_off_screen)
+	greg.position = greg_spawn_position
+	$Contents.add_child(greg)

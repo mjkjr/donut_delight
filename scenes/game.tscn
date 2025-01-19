@@ -1,6 +1,108 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=34 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
+[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
+[ext_resource type="Texture2D" uid="uid://p7ryxi8fxp65" path="res://assets/objects/donut01.png" id="2_78hli"]
+[ext_resource type="Texture2D" uid="uid://dn3qfsl5uuwsr" path="res://assets/long_straight_right.png" id="2_mpbfl"]
+[ext_resource type="Texture2D" uid="uid://4wfc3r6u4rqy" path="res://assets/fire_467.png" id="3_fvm45"]
+[ext_resource type="Texture2D" uid="uid://bn1jw1vj0yjr8" path="res://assets/objects/donut02.png" id="3_mdcg7"]
+[ext_resource type="Texture2D" uid="uid://g13wmm8gufar" path="res://assets/objects/donut03.png" id="4_17w03"]
+[ext_resource type="Texture2D" uid="uid://cx88st4cww3sc" path="res://assets/objects/donut04.png" id="5_svgom"]
+[ext_resource type="Texture2D" uid="uid://tbusx4kyunya" path="res://assets/objects/donut05.png" id="6_qhko1"]
+[ext_resource type="Texture2D" uid="uid://bt21eycdvn2vn" path="res://assets/objects/donut06.png" id="7_yqnpx"]
+[ext_resource type="Texture2D" uid="uid://bsvfhx7qhdl52" path="res://assets/objects/donut07.png" id="8_xoobg"]
+[ext_resource type="Texture2D" uid="uid://bdmngegf8opr1" path="res://assets/objects/donut08.png" id="9_je3ir"]
+[ext_resource type="Texture2D" uid="uid://cvor5s5v86sac" path="res://assets/objects/donut09.png" id="10_ys3vt"]
+[ext_resource type="Texture2D" uid="uid://bnjgfae6uymf7" path="res://assets/objects/donut10.png" id="11_cqwnc"]
+[ext_resource type="Texture2D" uid="uid://bjsqodtpabide" path="res://assets/objects/donut11.png" id="12_j13c0"]
+[ext_resource type="AudioStream" uid="uid://dki6de8ea21tu" path="res://assets/audio/music/Lofi hip hop Volume 1) - 06 - Soft Lights (Loop Version).mp3" id="15_pjdft"]
+[ext_resource type="AudioStream" uid="uid://em7a52ixh102" path="res://assets/audio/effects/merge.wav" id="16_h16gy"]
+[ext_resource type="AudioStream" uid="uid://i7a2v4u8nb8d" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="17_544n2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olody"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ycvs"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i5ai"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwl1o"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khncj"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7p4x"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4608"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u5jx"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vip2i"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30vb7"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq5le"]
+atlas = ExtResource("3_fvm45")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6ojn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olody")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ycvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i5ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwl1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khncj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7p4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4608")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u5jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vip2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30vb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq5le")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8ir2r"]
 a = Vector2(0, -400)
@@ -9,7 +111,8 @@ b = Vector2(0, 640)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0agsg"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_eccye"]
-b = Vector2(1080, 0)
+a = Vector2(-541, 0)
+b = Vector2(541, 0)
 
 [node name="Game" type="Node"]
 script = ExtResource("1_ah47j")
@@ -21,15 +124,175 @@ color = Color(0, 0, 0, 1)
 
 [node name="Contents" type="Node2D" parent="."]
 
-[node name="Background" type="ColorRect" parent="Contents"]
-offset_right = 1080.0
-offset_bottom = 1920.0
-color = Color(0.552941, 0, 0.556863, 1)
+[node name="Background" type="TextureRect" parent="Contents"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6x0ur")
+
+[node name="Node2D" type="Node2D" parent="Contents"]
+
+[node name="ColorRect" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 128.0
+offset_top = 580.0
+offset_right = 168.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 168.0
+offset_top = 580.0
+offset_right = 208.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 207.0
+offset_top = 580.0
+offset_right = 247.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 247.0
+offset_top = 580.0
+offset_right = 287.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 287.0
+offset_top = 580.0
+offset_right = 327.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 327.0
+offset_top = 580.0
+offset_right = 367.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 366.0
+offset_top = 580.0
+offset_right = 406.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 406.0
+offset_top = 580.0
+offset_right = 446.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 446.0
+offset_top = 580.0
+offset_right = 486.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 486.0
+offset_top = 580.0
+offset_right = 526.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 525.0
+offset_top = 580.0
+offset_right = 565.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 565.0
+offset_top = 580.0
+offset_right = 605.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect13" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 605.0
+offset_top = 580.0
+offset_right = 645.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 645.0
+offset_top = 580.0
+offset_right = 685.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect15" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 684.0
+offset_top = 580.0
+offset_right = 724.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 724.0
+offset_top = 580.0
+offset_right = 764.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect17" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 764.0
+offset_top = 580.0
+offset_right = 804.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect18" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 804.0
+offset_top = 580.0
+offset_right = 844.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect19" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 844.0
+offset_top = 580.0
+offset_right = 884.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
+
+[node name="ColorRect20" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 884.0
+offset_top = 580.0
+offset_right = 924.0
+offset_bottom = 1600.0
+color = Color(0.882353, 0.8, 0.670588, 1)
+
+[node name="ColorRect21" type="ColorRect" parent="Contents/Node2D"]
+offset_left = 923.0
+offset_top = 580.0
+offset_right = 948.0
+offset_bottom = 1600.0
+color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="UI" type="CanvasLayer" parent="Contents"]
 unique_name_in_owner = true
+process_mode = 3
+
+[node name="Fire" type="AnimatedSprite2D" parent="Contents/UI"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.75)
+position = Vector2(902, 137)
+scale = Vector2(4.88855, 4.88855)
+sprite_frames = SubResource("SpriteFrames_u6ojn")
+autoplay = "default"
 
 [node name="MarginContainer" type="MarginContainer" parent="Contents/UI"]
+custom_minimum_size = Vector2(1080, 1920)
 offset_right = 1080.0
 offset_bottom = 1920.0
 theme_override_constants/margin_left = 50
@@ -47,58 +310,239 @@ theme_override_font_sizes/font_size = 36
 text = "NEXT:"
 horizontal_alignment = 1
 
-[node name="Score" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/UI/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 72
+
+[node name="ScoreLabel" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Score: "
+horizontal_alignment = 2
+
+[node name="Score" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 2
 
-[node name="Boundaries" type="Node2D" parent="Contents"]
+[node name="HighScoreLabel" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "High Score: "
+horizontal_alignment = 2
+
+[node name="HighScore" type="Label" parent="Contents/UI/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 2
+
+[node name="GridContainer" type="GridContainer" parent="Contents/UI/MarginContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+columns = 6
+
+[node name="TextureRect" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_mpbfl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect1" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("2_78hli")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_mdcg7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect9" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("10_ys3vt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect10" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("11_cqwnc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_xoobg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_17w03")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect8" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_je3ir")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_svgom")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_qhko1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_yqnpx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect11" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_j13c0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GameOver" type="ColorRect" parent="Contents/UI"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.768627, 0.129412, 0.286275, 0.745098)
+
+[node name="Label" type="Label" parent="Contents/UI/GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -11.5
+offset_right = 48.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gameplay" type="Node2D" parent="Contents"]
 unique_name_in_owner = true
 
-[node name="Left" type="StaticBody2D" parent="Contents/Boundaries"]
+[node name="Boundaries" type="Node2D" parent="Contents/Gameplay"]
+unique_name_in_owner = true
+
+[node name="Left" type="StaticBody2D" parent="Contents/Gameplay/Boundaries"]
 position = Vector2(128, 960)
 
-[node name="Line2D" type="Line2D" parent="Contents/Boundaries/Left"]
+[node name="Line2D" type="Line2D" parent="Contents/Gameplay/Boundaries/Left"]
 points = PackedVector2Array(0, -400, 0, 640)
 default_color = Color(0.882353, 0.8, 0.670588, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Boundaries/Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Left"]
 shape = SubResource("SegmentShape2D_8ir2r")
 
-[node name="Bottom" type="StaticBody2D" parent="Contents/Boundaries"]
+[node name="Bottom" type="StaticBody2D" parent="Contents/Gameplay/Boundaries"]
 position = Vector2(540, 1600)
 
-[node name="Line2D" type="Line2D" parent="Contents/Boundaries/Bottom"]
+[node name="Line2D" type="Line2D" parent="Contents/Gameplay/Boundaries/Bottom"]
 points = PackedVector2Array(-412, 0, 412, 0)
 default_color = Color(0.882353, 0.8, 0.670588, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Boundaries/Bottom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Bottom"]
 shape = SubResource("WorldBoundaryShape2D_0agsg")
 
-[node name="Right" type="StaticBody2D" parent="Contents/Boundaries"]
+[node name="Right" type="StaticBody2D" parent="Contents/Gameplay/Boundaries"]
 position = Vector2(952, 960)
 
-[node name="Line2D" type="Line2D" parent="Contents/Boundaries/Right"]
+[node name="Line2D" type="Line2D" parent="Contents/Gameplay/Boundaries/Right"]
 points = PackedVector2Array(0, -400, 0, 640)
 default_color = Color(0.882353, 0.8, 0.670588, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Boundaries/Right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Right"]
 shape = SubResource("SegmentShape2D_8ir2r")
 
-[node name="Top" type="Area2D" parent="Contents/Boundaries"]
-position = Vector2(0, 500)
-collision_layer = 32768
-collision_mask = 2047
+[node name="Top" type="Area2D" parent="Contents/Gameplay/Boundaries"]
+position = Vector2(540, 475)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Boundaries/Top"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Top"]
 shape = SubResource("SegmentShape2D_eccye")
 
-[node name="Claw" type="Line2D" parent="Contents"]
+[node name="Spawner" type="Sprite2D" parent="Contents/Gameplay"]
 unique_name_in_owner = true
-position = Vector2(540, 200)
-points = PackedVector2Array(0, -200, 0, 0)
-default_color = Color(0.882353, 0.8, 0.670588, 1)
+position = Vector2(540, 502)
+rotation = 1.57079
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_mpbfl")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15_pjdft")
+autoplay = true
+bus = &"Music"
+
+[node name="Merge" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("16_h16gy")
+max_polyphony = 3
+bus = &"Effects"
+
+[node name="Drop" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("17_544n2")
+pitch_scale = 1.8
+bus = &"Effects"
+
+[connection signal="body_entered" from="Contents/Gameplay/Boundaries/Top" to="." method="_on_top_body_entered"]

@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://pi8eennu0lfr"]
+[gd_scene load_steps=7 format=3 uid="uid://pi8eennu0lfr"]
 
 [ext_resource type="Script" path="res://scenes/menus/credits.gd" id="1_m41ku"]
+[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_dbumv"]
+[ext_resource type="Texture2D" uid="uid://cvp8lqpf7gl70" path="res://assets/greg.png" id="2_ksmff"]
+[ext_resource type="PackedScene" uid="uid://ci23incsprkk3" path="res://scenes/greg/greg.tscn" id="3_0lf0l"]
+[ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="5_o37ff"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xwewd"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_m41ku")
@@ -11,6 +17,11 @@ offset_bottom = 1920.0
 color = Color(0.552941, 0, 0.556863, 1)
 
 [node name="Contents" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Contents"]
+offset_right = 1080.0
+offset_bottom = 1920.0
+texture = ExtResource("2_dbumv")
 
 [node name="Title" type="Label" parent="Contents"]
 offset_left = 208.0
@@ -39,10 +50,18 @@ text = "Credits"
 horizontal_alignment = 1
 
 [node name="Credits" type="Label" parent="Contents"]
-offset_left = 313.0
-offset_top = 436.551
-offset_right = 723.0
-offset_bottom = 1652.55
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 158.0
+offset_top = 462.0
+offset_right = 903.0
+offset_bottom = 1678.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 36
 text = "Design & Code
 Michael J. Kozubal Jr.
@@ -54,16 +73,18 @@ Artwork
 Game Developer Studio
 
 Additional Artwork
+BDragon1727
 Michael J. Kozubal Jr.
+Aurelia Kozubal
 
 Sound Effects
 TBD
 
 Background Music
-TBD
+Jeremy Leaird-Koch / Red Means Recording
 
 Play Testing
-TBD
+Aurelia Kozubal
 
 Special Thanks
 Dragos Daian / SoftBody2D"
@@ -77,4 +98,30 @@ offset_bottom = 1802.55
 theme_override_font_sizes/font_size = 36
 text = "Dismiss"
 
+[node name="TextureRect" type="TextureRect" parent="Contents"]
+visible = false
+offset_left = 762.0
+offset_top = 1791.0
+offset_right = 1018.0
+offset_bottom = 1919.0
+texture = ExtResource("2_ksmff")
+
+[node name="Floor" type="StaticBody2D" parent="Contents"]
+position = Vector2(540, 1916)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Floor"]
+shape = SubResource("WorldBoundaryShape2D_xwewd")
+
+[node name="Greg" parent="Contents" instance=ExtResource("3_0lf0l")]
+position = Vector2(-22, 1923)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Dismiss" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_o37ff")
+bus = &"Effects"
+
 [connection signal="pressed" from="Contents/Dismiss" to="." method="_on_dismiss_pressed"]
+[connection signal="off_screen" from="Contents/Greg" to="." method="_on_greg_off_screen"]

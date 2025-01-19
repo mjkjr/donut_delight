@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://c4uy88ne31jg4"]
 
-[ext_resource type="Texture2D" uid="uid://p7ryxi8fxp65" path="res://assets/donut01.png" id="1_m0rpn"]
+[ext_resource type="Texture2D" uid="uid://p7ryxi8fxp65" path="res://assets/objects/donut01.png" id="1_m0rpn"]
 [ext_resource type="Script" path="res://addons/softbody2d/softbody2d.gd" id="2_gd2yv"]
 
 [sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_1lf6g"]
@@ -494,7 +494,6 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-12" type="Bone2D" parent="SoftBody2D/Skeleton2D"]
 position = Vector2(125.704, 107.724)
 rotation = 1.65358
-scale = Vector2(1, 1)
 rest = Transform2D(-0.0826923, 0.996575, -0.996575, -0.0826923, 125.704, 107.724)
 auto_calculate_length_and_angle = false
 length = 34.0

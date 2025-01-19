@@ -1,19 +1,21 @@
 extends Node2D
-## Options Menu
-##
-## Fades in and displays the game's options
 
 
 func _ready() -> void:
-	# set the initial alpha to fully transparent
+	# set the initial alpha to fully transparent then fade in
+	$Background.modulate.a = 0
 	$Contents.modulate.a = 0
-	# fade the scene alpha in
 	var tween = get_tree().create_tween()
-	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 2)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property($Background, "modulate", Color(1, 1, 1, 1), 0.5)
+	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 0.5)
 
 
-# fade out and self-destruct
 func _on_back_pressed() -> void:
+	$Audio/Dismiss.play()
+	# fade out and self-destruct
 	var tween = get_tree().create_tween()
-	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 0), 1)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_property($Background, "modulate", Color(1, 1, 1, 0), 0.5)
 	tween.tween_callback(queue_free)

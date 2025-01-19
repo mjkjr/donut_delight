@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwupocn1owcb4"]
+[gd_scene load_steps=4 format=3 uid="uid://bwupocn1owcb4"]
 
 [ext_resource type="Script" path="res://scenes/menus/pause_menu.gd" id="1_vwr42"]
+[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_875ks"]
+[ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="3_6clre"]
 
 [node name="PauseMenu" type="Node2D"]
 script = ExtResource("1_vwr42")
@@ -11,6 +13,11 @@ offset_bottom = 1920.0
 color = Color(0.552941, 0, 0.556863, 1)
 
 [node name="Contents" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Contents"]
+offset_right = 1080.0
+offset_bottom = 1920.0
+texture = ExtResource("2_875ks")
 
 [node name="Title" type="Label" parent="Contents"]
 offset_left = 247.0
@@ -69,6 +76,12 @@ offset_right = 753.0
 offset_bottom = 1036.0
 theme_override_font_sizes/font_size = 60
 text = "Leave Game"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Button" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_6clre")
+bus = &"Effects"
 
 [connection signal="pressed" from="Contents/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Contents/Options" to="." method="_on_options_pressed"]

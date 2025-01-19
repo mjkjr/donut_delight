@@ -3,45 +3,51 @@ extends Node
 ##
 ## A cute donut merging game
 
-## TODO: lose condition when area is full
-## TODO: Save and load high score
-## TODO: Make softbody wiggle while being moved by the claw, see:
-##       https://softbody2d.appsinacup.com/docs/tutorial-basics/attach-a-softbody-to-character-controller/
-## TODO: Polish: tween next object into current object position
-## TODO: Add proper claw graphics
-## TODO: Add polish "puff" particle effect when objects merge
-## TODO: Sound effects
-## TODO: Background music
+## ATTENTION TODO: Replace fonts
+## ATTENTION TODO: Improve highlight of high-score
+## ATTENTION TODO: Add menu buttons to game over screen (convert to proper menu)
+
+## CRITICAL TODO: Add slight size variations of donuts
+## TODO: Make escape button dismiss menus
 ## TODO: Audio settings
-## TODO: Polish: make escape button dismiss menus
+
+## CRITICAL BUG: When resuming after pause the Boundary/Top will be detecting even if it shouldn't
+## CRITICAL BUG: merging sometimes causes softbody blob
+
+## POLISH
+## TODO: Add "puff" particle effect when objects merge
+## TODO: Add floating numbers upon scoring
+## TODO: Add "How to Play" instructions when starting a game
+
+## ATTENTION: Finish Title card
+
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
 
 const OBJECTS = [
 	preload("res://scenes/donuts/donut01.tscn"),
 	preload("res://scenes/donuts/donut02.tscn"),
+	preload("res://scenes/donuts/donut09.tscn"),
+	preload("res://scenes/donuts/donut10.tscn"),
+	preload("res://scenes/donuts/donut07.tscn"),
 	preload("res://scenes/donuts/donut03.tscn"),
+	preload("res://scenes/donuts/donut08.tscn"),
 	preload("res://scenes/donuts/donut04.tscn"),
 	preload("res://scenes/donuts/donut05.tscn"),
 	preload("res://scenes/donuts/donut06.tscn"),
-	preload("res://scenes/donuts/donut07.tscn"),
-	preload("res://scenes/donuts/donut08.tscn"),
-	preload("res://scenes/donuts/donut09.tscn"),
-	preload("res://scenes/donuts/donut10.tscn"),
 	preload("res://scenes/donuts/donut11.tscn"),
 ]
 const MAX_OBJECT_INDEX: int = 10
 
-var paused: bool = false
+var score: int = 0
+var high_score: int = 0
 
-var score = 0
+var player_control_active: bool = false
 
-var player_control_active = false
-
-var current_item = null
+var current_item: Node2D = null
 var current_item_offset: Vector2
 
-var next_item = null
+var next_item: Node2D = null
 var next_item_index: int
 var next_item_sprite: Sprite2D = null
 
@@ -52,80 +58,89 @@ var objects: Dictionary = {}
 
 
 func _ready() -> void:
+	load_high_score()
+	
 	# set the initial alpha to fully transparent
 	$Contents.modulate.a = 0
 	# fade the scene alpha in
 	var tween = get_tree().create_tween()
-	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 2)
+	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 0.5)
 	# fade the UI in
 	tween.set_parallel()
 	$Contents/UI/MarginContainer.modulate.a = 0
 	tween.tween_property($Contents/UI/MarginContainer, "modulate", Color(1, 1, 1, 1), 2)
 	
-	generate_merge_sequence_chart()
-	
 	# Create the initial game objects
 	spawn_next_item()
-	make_next_item_current()
 	# NOTE: this is blocking, but it's ok here at the very beginning
 	# wait a moment before giving player control
 	await get_tree().create_timer(0.5).timeout
+	make_next_item_current()
 	player_control_active = true
 
 
 func _process(_delta: float) -> void:
 	if not player_control_active: return
 	
-	# Player left/right movement of the claw
+	# Player left/right movement
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		
 		# Constrain to width of play area
-		var new_x = get_viewport().get_mouse_position().x
+		var bounded_x = get_viewport().get_mouse_position().x
 		
-		if new_x < %Boundaries/Left.position.x + current_item_offset.x:
-			%Claw.position.x = %Boundaries/Left.position.x + current_item_offset.x
-		elif new_x > %Boundaries/Right.position.x - current_item_offset.x:
-			%Claw.position.x = %Boundaries/Right.position.x - current_item_offset.x
-		else:
-			%Claw.position.x = new_x
+		if bounded_x < %Boundaries/Left.position.x + current_item_offset.x:
+			bounded_x = %Boundaries/Left.position.x + current_item_offset.x
+		elif bounded_x > %Boundaries/Right.position.x - current_item_offset.x:
+			bounded_x = %Boundaries/Right.position.x - current_item_offset.x
 		
-		current_item.position.x = %Claw.position.x
+		var tween = get_tree().create_tween()
+		tween.tween_property(%Spawner, "position:x", bounded_x, 0.25)
+		tween.parallel()
+		tween.tween_property(current_item, "position:x", bounded_x, 0.25)
 
 
 func _input(event: InputEvent) -> void:
-	if paused: return
-	
-	## FIXME: menu displays but game still running in background
 	if event.is_action_pressed("back"):
-		paused = true
-		%UI.add_child(PAUSE_MENU.instantiate())
+		pause_gameplay()
+		var pause_menu = PAUSE_MENU.instantiate()
+		%UI.add_child(pause_menu)
+		pause_menu.resume.connect(unpause_gameplay)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if player_control_active and event.is_action_released("move"):
+	if player_control_active and event.is_action_released("drop"):
 		drop_item()
 
 
-# releases the held object from the claw
 func drop_item() -> void:
 	player_control_active = false
+	%Boundaries/Top.monitoring = false
 	current_item.get_node("SoftBody2D").gravity_scale = 1
-	## FIXME: this is blocking, wait for object to fall passed upper boundary instead
-	# wait a moment before giving player control
-	await get_tree().create_timer(0.75).timeout
-	make_next_item_current()
-	player_control_active = true
+	$Audio/Drop.play()
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Spawner, "modulate", Color(1, 1, 1, 0), 0.25)
+	tween.tween_interval(1)
+	tween.tween_callback(
+		func():
+			%Boundaries/Top.monitoring = true
+			make_next_item_current()
+	)
+	tween.tween_property(%Spawner, "modulate", Color(1, 1, 1, 1), 0.25)
 
 
 func make_next_item_current() -> void:
 	next_item_sprite.free()
 	current_item = next_item
 	current_item_offset = current_item.get_node("SoftBody2D").texture.get_size() * 0.5
-	$Contents.add_child(current_item)
+	%Gameplay.add_child(current_item)
 	objects[current_item.get_path()] = next_item_index
-	current_item.position.x = %Claw.position.x
-	current_item.position.y = %Claw.position.y + current_item_offset.y
+	current_item.position.x = %Spawner.position.x
+	current_item.position.y = 180
 	bind_softbody_collision(current_item)
+	current_item.scale = Vector2(2, 2)
+	var tween = get_tree().create_tween()
+	tween.tween_property(current_item, "scale", Vector2(1, 1), 0.25)
+	tween.tween_callback(func(): player_control_active = true)
 	spawn_next_item()
 
 
@@ -136,7 +151,7 @@ func spawn_next_item() -> void:
 	next_item_sprite = Sprite2D.new()
 	next_item_sprite.texture = next_item.get_node("SoftBody2D").texture
 	next_item_sprite.scale = Vector2(0.5, 0.5)
-	$Contents.add_child(next_item_sprite)
+	%Gameplay.add_child(next_item_sprite)
 	next_item_sprite.position.x = 100
 	next_item_sprite.position.y = 175
 
@@ -173,19 +188,28 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 			
 			# Increment the score
 			score += 100 * (1 + object_index)
-			%Score.text = str(score)
+			%Score.text = format_large_integer(score)
+			if score > high_score:
+				high_score = score
+				%HighScore.text = format_large_integer(high_score)
+				# Highlight the high score
+				%HighScore.set("theme_override_colors/font_color", Color(0.1, 0.15, 0.4, 1))
+				%HighScoreLabel.set("theme_override_colors/font_color", Color(0.1, 0.15, 0.4, 1))
+				%Fire.visible = true
+				%ScoreLabel.visible = false
+				%Score.visible = false
 
 
 func spawn_object(index: int, position: Vector2) -> void:
+	$Audio/Merge.play()
 	var new_object = OBJECTS[index].instantiate()
-	$Contents.add_child(new_object)
+	%Gameplay.add_child(new_object)
 	new_object.position = position
 	objects[new_object.get_path()] = index
 	bind_softbody_collision(new_object)
 	new_object.scale = Vector2(0.1, 0.1)
 	var tween = get_tree().create_tween()
 	tween.tween_property(new_object, "scale", Vector2(1, 1), 0.25)
-	## TODO: Add polish "puff" particle effect
 
 
 func bind_softbody_collision(object: Node2D) -> void:
@@ -196,15 +220,52 @@ func bind_softbody_collision(object: Node2D) -> void:
 			child.max_contacts_reported = 1
 
 
-# ATTENTION
-func generate_merge_sequence_chart() -> void:
-	# TODO: divide the screen width by the number of objects and scale the sprites appropriately
-	# TODO: add an arrow sprite between the objects
-	for i in range(OBJECTS.size()):
-		var object: Node2D = OBJECTS[i].instantiate()
-		var sprite: Sprite2D = Sprite2D.new()
-		sprite.texture = object.get_node("SoftBody2D").texture
-		sprite.scale = Vector2(0.25, 0.25)
-		$Contents.add_child(sprite)
-		sprite.position.x = sprite.texture.get_size().x * 0.25 * i
-		sprite.position.y = 1750
+# detect container overflow, causing game over
+func _on_top_body_entered(_body: Node2D) -> void:
+	pause_gameplay()
+	game_over()
+
+
+func pause_gameplay() -> void:
+	get_tree().paused = true
+
+
+func unpause_gameplay() -> void:
+	get_tree().paused = false
+
+
+func game_over() -> void:
+	%GameOver.visible = true
+	save_high_score()
+
+
+func save_high_score() -> void:
+	if score == high_score:
+		var file = FileAccess.open("user://hiscore", FileAccess.WRITE)
+		if file != null:
+			file.store_string(str(high_score))
+
+
+func load_high_score() -> void:
+	var file = FileAccess.open("user://hiscore", FileAccess.READ)
+	if file != null:
+		high_score = int(file.get_as_text())
+		%HighScore.text = format_large_integer(high_score)
+
+
+## Adds commas for thousands separators
+func format_large_integer(num: int) -> String:
+	var string: String = str(num)
+	var size: int = string.length()
+	var formatted: String = ""
+	
+	for i in range(size):
+			if (
+				(size - i) % 3 == 0
+				and i > 0
+			):
+				formatted = str(formatted, ",", string[i])
+			else:
+				formatted = str(formatted, string[i])
+	
+	return formatted

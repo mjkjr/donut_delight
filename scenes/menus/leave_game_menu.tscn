@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddnjrbd11q452"]
+[gd_scene load_steps=5 format=3 uid="uid://ddnjrbd11q452"]
 
 [ext_resource type="Script" path="res://scenes/menus/leave_game_menu.gd" id="1_nn36c"]
+[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_pd6i1"]
+[ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="3_q83c2"]
+[ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="4_8nfu0"]
 
 [node name="LeaveGameMenu" type="Node2D"]
 script = ExtResource("1_nn36c")
@@ -11,6 +14,11 @@ offset_bottom = 1920.0
 color = Color(0.552941, 0, 0.556863, 1)
 
 [node name="Contents" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Contents"]
+offset_right = 1080.0
+offset_bottom = 1920.0
+texture = ExtResource("2_pd6i1")
 
 [node name="Title" type="Label" parent="Contents"]
 offset_left = 213.0
@@ -53,6 +61,16 @@ offset_right = 709.0
 offset_bottom = 1064.53
 theme_override_font_sizes/font_size = 60
 text = "Remain"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Button" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_q83c2")
+bus = &"Effects"
+
+[node name="Dismiss" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_8nfu0")
+bus = &"Effects"
 
 [connection signal="pressed" from="Contents/Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="Contents/Remain" to="." method="_on_remain_pressed"]
