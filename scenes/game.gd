@@ -3,25 +3,25 @@ extends Node
 ##
 ## A cute donut merging game
 
-## ATTENTION TODO: Replace fonts
-## ATTENTION TODO: Improve highlight of high-score
 ## ATTENTION TODO: Add menu buttons to game over screen (convert to proper menu)
 
-## CRITICAL TODO: Add slight size variations of donuts
 ## TODO: Make escape button dismiss menus
 ## TODO: Audio settings
 
+## ATTENTION TODO: Add slight size variations of donuts
+
 ## CRITICAL BUG: When resuming after pause the Boundary/Top will be detecting even if it shouldn't
 ## CRITICAL BUG: merging sometimes causes softbody blob
+##					try: swapping in a sprite for the tween
 
 ## POLISH
+## TODO: Improve highlight of high-score
 ## TODO: Add "puff" particle effect when objects merge
 ## TODO: Add floating numbers upon scoring
 ## TODO: Add "How to Play" instructions when starting a game
+## TODO: Spawn trail behind snail
 
 ## ATTENTION: Finish Title card
-
-## TODO: Spawn trail behind snail
 
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
@@ -51,7 +51,6 @@ var current_item_offset: Vector2
 
 var next_item: Node2D = null
 var next_item_index: int
-#var next_item_sprite: Sprite2D = null
 
 # keeps track of objects in play
 # each element is a Dictionary with the following structure:
@@ -86,19 +85,7 @@ func _process(_delta: float) -> void:
 	
 	# Player left/right movement
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		
-		# Constrain to width of play area
-		var bounded_x = get_viewport().get_mouse_position().x
-		
-		if bounded_x < %Boundaries/Left.position.x + current_item_offset.x:
-			bounded_x = %Boundaries/Left.position.x + current_item_offset.x
-		elif bounded_x > %Boundaries/Right.position.x - current_item_offset.x:
-			bounded_x = %Boundaries/Right.position.x - current_item_offset.x
-		
-		var tween = get_tree().create_tween()
-		tween.tween_property(%Spawner, "position:x", bounded_x, 0.25)
-		tween.parallel()
-		tween.tween_property(current_item, "position:x", bounded_x, 0.25)
+		move()
 
 
 func _input(event: InputEvent) -> void:
@@ -111,7 +98,23 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player_control_active and event.is_action_released("drop"):
+		move()
 		drop_item()
+
+
+func move() -> void:
+	# Constrain to width of play area
+	var bounded_x = get_viewport().get_mouse_position().x
+	
+	if bounded_x < %Boundaries/Left.position.x + current_item_offset.x:
+		bounded_x = %Boundaries/Left.position.x + current_item_offset.x
+	elif bounded_x > %Boundaries/Right.position.x - current_item_offset.x:
+		bounded_x = %Boundaries/Right.position.x - current_item_offset.x
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Spawner, "position:x", bounded_x, 0.25)
+	tween.parallel()
+	tween.tween_property(current_item, "position:x", bounded_x, 0.25)
 
 
 func drop_item() -> void:
