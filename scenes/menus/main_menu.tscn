@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_37dxe"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_sdj1v"]
-[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://theme.tres" id="3_3cjaw"]
+[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_3cjaw"]
 [ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="3_eax65"]
 
 [node name="MainMenu" type="Node2D"]

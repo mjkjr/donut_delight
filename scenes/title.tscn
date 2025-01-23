@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_xpfyw"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_4lgvg"]
-[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://theme.tres" id="2_srhbr"]
+[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="2_srhbr"]
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_xpfyw")

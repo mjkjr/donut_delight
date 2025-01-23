@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_dbumv"]
 [ext_resource type="Texture2D" uid="uid://cvp8lqpf7gl70" path="res://assets/greg.png" id="2_ksmff"]
 [ext_resource type="PackedScene" uid="uid://ci23incsprkk3" path="res://scenes/greg/greg.tscn" id="3_0lf0l"]
-[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://theme.tres" id="3_2y6nc"]
+[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_2y6nc"]
 [ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="5_o37ff"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xwewd"]

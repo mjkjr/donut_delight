@@ -10,16 +10,16 @@ extends Node
 
 ## ATTENTION TODO: Add slight size variations of donuts
 
-## CRITICAL BUG: When resuming after pause the Boundary/Top will be detecting even if it shouldn't
 ## CRITICAL BUG: merging sometimes causes softbody blob
 ##					try: swapping in a sprite for the tween
 
 ## POLISH
-## TODO: Improve highlight of high-score
 ## TODO: Add "puff" particle effect when objects merge
 ## TODO: Add floating numbers upon scoring
 ## TODO: Add "How to Play" instructions when starting a game
 ## TODO: Spawn trail behind snail
+## TODO: Add screen shake on high score
+## TODO: Add zoom in label on high score
 
 ## ATTENTION: Finish Title card
 
@@ -77,7 +77,6 @@ func _ready() -> void:
 	# wait a moment before giving player control
 	await get_tree().create_timer(0.5).timeout
 	make_next_item_current()
-	player_control_active = true
 
 
 func _process(_delta: float) -> void:
@@ -139,7 +138,7 @@ func make_next_item_current() -> void:
 	%Gameplay.add_child(current_item)
 	objects[current_item.get_path()] = next_item_index
 	current_item.position.x = %Spawner.position.x
-	current_item.position.y = 180
+	current_item.position.y = 250
 	bind_softbody_collision(current_item)
 	current_item.scale = Vector2(2, 2)
 	var tween = get_tree().create_tween()
@@ -190,13 +189,17 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 			%Score.text = format_large_integer(score)
 			if score > high_score:
 				high_score = score
-				%HighScore.text = format_large_integer(high_score)
-				# Highlight the high score
-				%HighScore.set("theme_override_colors/font_color", Color(0.1, 0.15, 0.4, 1))
-				%HighScoreLabel.set("theme_override_colors/font_color", Color(0.1, 0.15, 0.4, 1))
-				%Fire.visible = true
-				%ScoreLabel.visible = false
-				%Score.visible = false
+				%Score.text = format_large_integer(high_score)
+				
+				if %ScoreLabel.text != "HIGH SCORE":
+					%Flash.visible = true
+					var tween = get_tree().create_tween()
+					tween.tween_property(%Flash, "modulate", Color(1, 1, 1, 1), 0.1)
+					tween.tween_property(%ScoreLabel, "text", "HIGH SCORE", 0)
+					tween.tween_property(%Spacer, "visible", false, 0)
+					tween.tween_property(%Fire, "visible", true, 0)
+					tween.tween_property(%Flash, "modulate", Color(1, 1, 1, 0), 0.1)
+					tween.tween_property(%Flash, "visible", false, 0)
 
 
 func spawn_object(index: int, position: Vector2) -> void:
@@ -219,7 +222,7 @@ func bind_softbody_collision(object: Node2D) -> void:
 			child.max_contacts_reported = 1
 
 
-# detect container overflow, causing game over
+# detect game over condition
 func _on_top_body_entered(_body: Node2D) -> void:
 	pause_gameplay()
 	game_over()
@@ -231,6 +234,11 @@ func pause_gameplay() -> void:
 
 func unpause_gameplay() -> void:
 	get_tree().paused = false
+	%Boundaries/Top.monitoring = false
+	get_tree().create_timer(1.25).timeout.connect(
+		func():
+			%Boundaries/Top.monitoring = true
+	)
 
 
 func game_over() -> void:
@@ -249,7 +257,6 @@ func load_high_score() -> void:
 	var file = FileAccess.open("user://hiscore", FileAccess.READ)
 	if file != null:
 		high_score = int(file.get_as_text())
-		%HighScore.text = format_large_integer(high_score)
 
 
 ## Adds commas for thousands separators
