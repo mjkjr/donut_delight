@@ -10,7 +10,7 @@ A Donut Merging Game.
 
 ## 🕹️ Play
 
-https://mjkjr.itch.io/  TBD
+https://mjkjr.itch.io/donut_delight
 
 ## 👋 Acknowledgments
 
