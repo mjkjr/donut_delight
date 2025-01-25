@@ -26,18 +26,43 @@ custom_minimum_size = Vector2(1080, 1920)
 offset_right = 1080.0
 offset_bottom = 1920.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Contents/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_w5opt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Label" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Contents/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_w5opt")
 theme_override_font_sizes/font_size = 150
 text = "GAME OVER!"
 horizontal_alignment = 1
 
-[node name="Dismiss" type="Button" parent="Contents/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Contents/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Contents/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_w5opt")
+theme_override_font_sizes/font_size = 72
+text = "SCORE: "
+
+[node name="FinalScore" type="Label" parent="Contents/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_w5opt")
+theme_override_font_sizes/font_size = 72
+text = "0"
+
+[node name="ColorRect" type="ColorRect" parent="Contents/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Dismiss" type="Button" parent="Contents/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -50,4 +75,4 @@ text = "Main Menu"
 stream = ExtResource("5_yakjb")
 bus = &"Effects"
 
-[connection signal="pressed" from="Contents/CenterContainer/VBoxContainer/Dismiss" to="." method="_on_dismiss_pressed"]
+[connection signal="pressed" from="Contents/CenterContainer/PanelContainer/VBoxContainer/Dismiss" to="." method="_on_dismiss_pressed"]

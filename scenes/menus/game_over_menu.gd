@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	%FinalScore.text = Global.format_large_integer(Global.score)
 	# set the initial alpha to fully transparent then fade in
 	$Background.modulate.a = 0
 	var tween = get_tree().create_tween()

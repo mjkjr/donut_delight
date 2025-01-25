@@ -267,7 +267,7 @@ default_color = Color(0.882353, 0.8, 0.670588, 1)
 shape = SubResource("SegmentShape2D_8ir2r")
 
 [node name="Top" type="Area2D" parent="Contents/Gameplay/Boundaries"]
-position = Vector2(540, 475)
+position = Vector2(540, 499)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Top"]
 shape = SubResource("SegmentShape2D_eccye")
@@ -314,7 +314,6 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("4_uwju3")
-theme_override_font_sizes/font_size = 36
 text = "NEXT"
 horizontal_alignment = 1
 
@@ -353,7 +352,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("4_uwju3")
-theme_override_font_sizes/font_size = 36
 text = "SCORE"
 horizontal_alignment = 1
 vertical_alignment = 2

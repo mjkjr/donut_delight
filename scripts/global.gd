@@ -1,7 +1,28 @@
 extends Node
-## Global game state
-##
-## Handles scene switching
+## Global game state and scene switching
+
+var score: int = 0
+var high_score: int = 0
+
+## Adds commas for thousands separators
+func format_large_integer(num: int) -> String:
+	var string: String = str(num)
+	var size: int = string.length()
+	var formatted: String = ""
+	
+	for i in range(size):
+			if (
+				(size - i) % 3 == 0
+				and i > 0
+			):
+				formatted = str(formatted, ",", string[i])
+			else:
+				formatted = str(formatted, string[i])
+	
+	return formatted
+
+
+## Scene Switching
 
 var current_scene = null
 

@@ -3,24 +3,25 @@ extends Node
 ##
 ## A cute donut merging game
 
-## CRITICAL BUG: merging sometimes causes softbody blob
-
-## TODO: Add score to game over menu
 ## TODO: Align menu buttons
 ## TODO: Audio settings
+## TODO: Experiment with different softbody settings to slightly reduce their bounciness
 
 ## ATTENTION TODO: Add slight size variations of donuts
+## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
 ## POLISH
-## TODO: Improve buttons color scheme (in theme)
 ## TODO: Add "puff" particle effect when objects merge
 ## TODO: Add floating numbers upon scoring
 ## TODO: Add "How to Play" instructions when starting a game
 ## TODO: Add screen shake on high score
 ## TODO: Add zoom in label on high score
 ## TODO: Spawn trail behind snail on credits screen
+## TODO: Improve buttons color scheme (in theme)
 
-## ATTENTION: Finish Title card
+## ATTENTION: Add art to title screen
+## ATTENTION: Add "Why No Ads?" screen to menu
+## ATTENTION: Update icon
 
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
@@ -42,9 +43,6 @@ const OBJECTS = [
 const MAX_OBJECT_INDEX: int = 10
 
 var game_over: bool = false
-
-var score: int = 0
-var high_score: int = 0
 
 var player_control_active: bool = false
 
@@ -188,11 +186,11 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 			call_deferred("spawn_object", object_index + 1, new_object_position)
 			
 			# Increment the score
-			score += 100 * (1 + object_index)
-			%Score.text = format_large_integer(score)
-			if score > high_score:
-				high_score = score
-				%Score.text = format_large_integer(high_score)
+			Global.score += 100 * (1 + object_index)
+			%Score.text = Global.format_large_integer(Global.score)
+			if Global.score > Global.high_score:
+				Global.high_score = Global.score
+				%Score.text = Global.format_large_integer(Global.high_score)
 				
 				if %ScoreLabel.text != "HIGH SCORE":
 					%Flash.visible = true
@@ -250,31 +248,13 @@ func unpause_gameplay() -> void:
 
 
 func save_high_score() -> void:
-	if score == high_score:
+	if Global.score == Global.high_score:
 		var file = FileAccess.open("user://hiscore", FileAccess.WRITE)
 		if file != null:
-			file.store_string(str(high_score))
+			file.store_string(str(Global.high_score))
 
 
 func load_high_score() -> void:
 	var file = FileAccess.open("user://hiscore", FileAccess.READ)
 	if file != null:
-		high_score = int(file.get_as_text())
-
-
-## Adds commas for thousands separators
-func format_large_integer(num: int) -> String:
-	var string: String = str(num)
-	var size: int = string.length()
-	var formatted: String = ""
-	
-	for i in range(size):
-			if (
-				(size - i) % 3 == 0
-				and i > 0
-			):
-				formatted = str(formatted, ",", string[i])
-			else:
-				formatted = str(formatted, string[i])
-	
-	return formatted
+		Global.high_score = int(file.get_as_text())

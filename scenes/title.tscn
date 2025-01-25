@@ -17,7 +17,7 @@ color = Color(0, 0, 0, 1)
 [node name="Background" type="ColorRect" parent="Contents"]
 offset_right = 1080.0
 offset_bottom = 1920.0
-color = Color(0.552941, 0, 0.556863, 1)
+color = Color(0.662745, 0.113725, 0.466667, 1)
 
 [node name="Background2" type="TextureRect" parent="Contents"]
 offset_right = 1080.0

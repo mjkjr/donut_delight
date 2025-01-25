@@ -54,7 +54,6 @@ offset_top = 584.0
 offset_right = 790.0
 offset_bottom = 634.0
 theme = ExtResource("3_s503x")
-theme_override_font_sizes/font_size = 36
 text = "Option items will go here"
 
 [node name="Back" type="Button" parent="Contents"]
