@@ -63,7 +63,6 @@ offset_top = 1685.0
 offset_right = 626.0
 offset_bottom = 1776.0
 theme = ExtResource("3_s503x")
-theme_override_font_sizes/font_size = 60
 text = "Back"
 
 [node name="Audio" type="Node" parent="."]

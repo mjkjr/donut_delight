@@ -3,28 +3,29 @@ extends Node
 ##
 ## A cute donut merging game
 
-## ATTENTION TODO: Add menu buttons to game over screen (convert to proper menu)
+## CRITICAL BUG: merging sometimes causes softbody blob
 
 ## TODO: Make escape button dismiss menus
+## TODO: Add score to game over menu
+## TODO: Align menu buttons
 ## TODO: Audio settings
 
 ## ATTENTION TODO: Add slight size variations of donuts
 
-## CRITICAL BUG: merging sometimes causes softbody blob
-##					try: swapping in a sprite for the tween
-
 ## POLISH
+## TODO: Improve buttons color scheme (in theme)
 ## TODO: Add "puff" particle effect when objects merge
 ## TODO: Add floating numbers upon scoring
 ## TODO: Add "How to Play" instructions when starting a game
-## TODO: Spawn trail behind snail
 ## TODO: Add screen shake on high score
 ## TODO: Add zoom in label on high score
+## TODO: Spawn trail behind snail on credits screen
 
 ## ATTENTION: Finish Title card
 
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
+const GAME_OVER_MENU = preload("res://scenes/menus/game_over_menu.tscn")
 
 const OBJECTS = [
 	preload("res://scenes/donuts/donut01.tscn"),
@@ -40,6 +41,8 @@ const OBJECTS = [
 	preload("res://scenes/donuts/donut11.tscn"),
 ]
 const MAX_OBJECT_INDEX: int = 10
+
+var game_over: bool = false
 
 var score: int = 0
 var high_score: int = 0
@@ -140,8 +143,8 @@ func make_next_item_current() -> void:
 	current_item.position.x = %Spawner.position.x
 	current_item.position.y = 250
 	bind_softbody_collision(current_item)
-	current_item.scale = Vector2(2, 2)
 	var tween = get_tree().create_tween()
+	tween.tween_property(current_item, "scale", Vector2(2, 2), 0)
 	tween.tween_property(current_item, "scale", Vector2(1, 1), 0.25)
 	tween.tween_callback(func(): player_control_active = true)
 	spawn_next_item()
@@ -206,11 +209,11 @@ func spawn_object(index: int, position: Vector2) -> void:
 	$Audio/Merge.play()
 	var new_object = OBJECTS[index].instantiate()
 	%Gameplay.add_child(new_object)
-	new_object.position = position
 	objects[new_object.get_path()] = index
+	new_object.position = position
 	bind_softbody_collision(new_object)
-	new_object.scale = Vector2(0.1, 0.1)
 	var tween = get_tree().create_tween()
+	tween.tween_property(new_object, "scale", Vector2(0.1, 0.1), 0)
 	tween.tween_property(new_object, "scale", Vector2(1, 1), 0.25)
 
 
@@ -223,9 +226,13 @@ func bind_softbody_collision(object: Node2D) -> void:
 
 
 # detect game over condition
-func _on_top_body_entered(_body: Node2D) -> void:
-	pause_gameplay()
-	game_over()
+func _on_game_over(_body: Node2D) -> void:
+	if not game_over:
+		game_over = true
+		pause_gameplay()
+		save_high_score()
+		var game_over_menu = GAME_OVER_MENU.instantiate()
+		%UI.add_child(game_over_menu)
 
 
 func pause_gameplay() -> void:
@@ -234,16 +241,12 @@ func pause_gameplay() -> void:
 
 func unpause_gameplay() -> void:
 	get_tree().paused = false
-	%Boundaries/Top.monitoring = false
-	get_tree().create_timer(1.25).timeout.connect(
-		func():
-			%Boundaries/Top.monitoring = true
-	)
-
-
-func game_over() -> void:
-	%GameOver.visible = true
-	save_high_score()
+	if %Boundaries/Top.monitoring == true:
+		%Boundaries/Top.monitoring = false
+		get_tree().create_timer(1.25).timeout.connect(
+			func():
+				%Boundaries/Top.monitoring = true
+		)
 
 
 func save_high_score() -> void:

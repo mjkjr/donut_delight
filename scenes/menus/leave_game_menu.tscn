@@ -14,6 +14,13 @@ offset_right = 1080.0
 offset_bottom = 1920.0
 color = Color(0.552941, 0, 0.556863, 1)
 
+[node name="Black" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0, 0, 0, 1)
+
 [node name="Contents" type="Node2D" parent="."]
 
 [node name="Background" type="TextureRect" parent="Contents"]

@@ -26,6 +26,7 @@ func _on_leave_pressed() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_property($Black, "modulate", Color(1, 1, 1, 1), 0.5)
 	tween.tween_callback(
 		func():
 			get_tree().paused = false

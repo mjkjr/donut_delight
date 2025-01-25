@@ -103,8 +103,7 @@ offset_top = 1690.0
 offset_right = 602.0
 offset_bottom = 1748.0
 theme = ExtResource("3_2y6nc")
-theme_override_font_sizes/font_size = 36
-text = "DISMISS"
+text = "Dismiss"
 
 [node name="TextureRect" type="TextureRect" parent="Contents"]
 visible = false

@@ -44,7 +44,6 @@ offset_top = 629.0
 offset_right = 550.0
 offset_bottom = 704.0
 theme = ExtResource("3_3cjaw")
-theme_override_font_sizes/font_size = 48
 text = "Play"
 
 [node name="Options" type="Button" parent="Contents"]
@@ -53,7 +52,6 @@ offset_top = 779.0
 offset_right = 720.0
 offset_bottom = 854.0
 theme = ExtResource("3_3cjaw")
-theme_override_font_sizes/font_size = 48
 text = "Options"
 
 [node name="Credits" type="Button" parent="Contents"]
@@ -62,7 +60,6 @@ offset_top = 921.0
 offset_right = 568.0
 offset_bottom = 996.0
 theme = ExtResource("3_3cjaw")
-theme_override_font_sizes/font_size = 48
 text = "Credits"
 
 [node name="Label" type="Label" parent="Contents"]

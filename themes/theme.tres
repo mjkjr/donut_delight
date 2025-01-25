@@ -1,7 +1,53 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cbs1608u20kwu"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cbs1608u20kwu"]
 
 [ext_resource type="FontFile" uid="uid://cke67unuocwpa" path="res://assets/fonts/concert-one/concertone-regular.ttf" id="1_hd677"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usww7"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 20.0
+bg_color = Color(0.47451, 0.184314, 0.313726, 0.74902)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ointw"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 20.0
+bg_color = Color(0.47451, 0.184314, 0.313726, 0.74902)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0mbq"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 20.0
+bg_color = Color(0.52959, 0.21237, 0.354557, 0.75)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2vwb"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 20.0
+bg_color = Color(0.353478, 0.127875, 0.228764, 0.74902)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [resource]
+Button/colors/font_pressed_color = Color(0.74674, 0.539573, 0.590841, 1)
+Button/font_sizes/font_size = 60
 Button/fonts/font = ExtResource("1_hd677")
+Button/styles/focus = SubResource("StyleBoxFlat_usww7")
+Button/styles/hover = SubResource("StyleBoxFlat_ointw")
+Button/styles/normal = SubResource("StyleBoxFlat_p0mbq")
+Button/styles/pressed = SubResource("StyleBoxFlat_r2vwb")
 Label/fonts/font = ExtResource("1_hd677")
