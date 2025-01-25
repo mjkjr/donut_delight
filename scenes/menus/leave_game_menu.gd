@@ -10,6 +10,12 @@ func _ready() -> void:
 	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 0.5)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("back"):
+		get_viewport().set_input_as_handled()
+		_on_remain_pressed()
+
+
 func _on_remain_pressed() -> void:
 	$Audio/Dismiss.play()
 	# fade out and self-destruct

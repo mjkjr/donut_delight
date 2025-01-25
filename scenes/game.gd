@@ -5,7 +5,6 @@ extends Node
 
 ## CRITICAL BUG: merging sometimes causes softbody blob
 
-## TODO: Make escape button dismiss menus
 ## TODO: Add score to game over menu
 ## TODO: Align menu buttons
 ## TODO: Audio settings
@@ -92,6 +91,7 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("back"):
+		get_viewport().set_input_as_handled()
 		pause_gameplay()
 		var pause_menu = PAUSE_MENU.instantiate()
 		%UI.add_child(pause_menu)
