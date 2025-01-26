@@ -3,14 +3,16 @@ extends Node
 ##
 ## A cute donut merging game
 
-## TODO: Align menu buttons
-## TODO: Audio settings
 ## TODO: Experiment with different softbody settings to slightly reduce their bounciness
+
+## TODO: Audio settings
+## TODO: Align menu buttons
 
 ## ATTENTION TODO: Add slight size variations of donuts
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
 ## POLISH
+## TODO: Add a losing audio sound effect
 ## TODO: Add "puff" particle effect when objects merge
 ## TODO: Add floating numbers upon scoring
 ## TODO: Add "How to Play" instructions when starting a game
@@ -124,7 +126,7 @@ func drop_item() -> void:
 	$Audio/Drop.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Spawner, "modulate", Color(1, 1, 1, 0), 0.25)
-	tween.tween_interval(1)
+	tween.tween_interval(2)
 	tween.tween_callback(
 		func():
 			%Boundaries/Top.monitoring = true
@@ -153,6 +155,26 @@ func spawn_next_item() -> void:
 	next_item = OBJECTS[next_item_index].instantiate()
 	next_item.get_node("SoftBody2D").gravity_scale = 0
 	%Next.texture = next_item.get_node("SoftBody2D").texture
+
+
+func spawn_object(index: int, position: Vector2) -> void:
+	$Audio/Merge.play()
+	var new_object = OBJECTS[index].instantiate()
+	%Gameplay.add_child(new_object)
+	objects[new_object.get_path()] = index
+	new_object.position = position
+	bind_softbody_collision(new_object)
+	var tween = get_tree().create_tween()
+	tween.tween_property(new_object, "scale", Vector2(0.1, 0.1), 0)
+	tween.tween_property(new_object, "scale", Vector2(1, 1), 0.25)
+
+
+func bind_softbody_collision(object: Node2D) -> void:
+	for child in object.get_node("SoftBody2D").get_children():
+		if child is RigidBody2D:
+			child.body_entered.connect(resolve_collision.bind(child))
+			child.contact_monitor = true
+			child.max_contacts_reported = 1
 
 
 func resolve_collision(object1: Node, object2: Node) -> void:
@@ -203,30 +225,15 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 					tween.tween_property(%Flash, "visible", false, 0)
 
 
-func spawn_object(index: int, position: Vector2) -> void:
-	$Audio/Merge.play()
-	var new_object = OBJECTS[index].instantiate()
-	%Gameplay.add_child(new_object)
-	objects[new_object.get_path()] = index
-	new_object.position = position
-	bind_softbody_collision(new_object)
-	var tween = get_tree().create_tween()
-	tween.tween_property(new_object, "scale", Vector2(0.1, 0.1), 0)
-	tween.tween_property(new_object, "scale", Vector2(1, 1), 0.25)
-
-
-func bind_softbody_collision(object: Node2D) -> void:
-	for child in object.get_node("SoftBody2D").get_children():
-		if child is RigidBody2D:
-			child.body_entered.connect(resolve_collision.bind(child))
-			child.contact_monitor = true
-			child.max_contacts_reported = 1
-
-
 # detect game over condition
-func _on_game_over(_body: Node2D) -> void:
+func _on_top_body_entered(body: Node2D) -> void:
 	if not game_over:
 		game_over = true
+		# hide current item
+		current_item.visible = false
+		%Spawner.visible = false
+		# highlight the losing object
+		body.get_parent().modulate = Color(1, 0, 0, 1)
 		pause_gameplay()
 		save_high_score()
 		var game_over_menu = GAME_OVER_MENU.instantiate()
@@ -239,12 +246,6 @@ func pause_gameplay() -> void:
 
 func unpause_gameplay() -> void:
 	get_tree().paused = false
-	if %Boundaries/Top.monitoring == true:
-		%Boundaries/Top.monitoring = false
-		get_tree().create_timer(1.25).timeout.connect(
-			func():
-				%Boundaries/Top.monitoring = true
-		)
 
 
 func save_high_score() -> void:

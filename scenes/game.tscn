@@ -490,4 +490,4 @@ stream = ExtResource("17_544n2")
 pitch_scale = 1.8
 bus = &"Effects"
 
-[connection signal="body_entered" from="Contents/Gameplay/Boundaries/Top" to="." method="_on_game_over"]
+[connection signal="body_entered" from="Contents/Gameplay/Boundaries/Top" to="." method="_on_top_body_entered"]
