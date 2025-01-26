@@ -23,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_back_pressed() -> void:
 	$Audio/Dismiss.play()
+	Global.save_settings()
 	# fade out and self-destruct
 	var tween = get_tree().create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
@@ -34,16 +35,13 @@ func _on_back_pressed() -> void:
 func _on_master_volume_drag_ended(value_changed: bool) -> void:
 	if not value_changed: return
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(%VolumeMaster.value / 100))
-	Global.save_settings()
 
 
 func _on_music_volume_drag_ended(value_changed: bool) -> void:
 	if not value_changed: return
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(%VolumeMusic.value / 100))
-	Global.save_settings()
 
 
 func _on_effects_volume_drag_ended(value_changed: bool) -> void:
 	if not value_changed: return
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(%VolumeEffects.value / 100))
-	Global.save_settings()
