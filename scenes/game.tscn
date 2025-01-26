@@ -484,4 +484,10 @@ stream = ExtResource("17_544n2")
 pitch_scale = 1.8
 bus = &"Effects"
 
+[node name="BatchSaveTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
 [connection signal="body_entered" from="Contents/Gameplay/Boundaries/Top" to="." method="_on_top_body_entered"]
+[connection signal="timeout" from="BatchSaveTimer" to="." method="_on_batch_save_timer_timeout"]

@@ -2,9 +2,9 @@ extends Node2D
 
 
 func _ready() -> void:
-	%VolumeMaster.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
-	%VolumeMusic.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
-	%VolumeEffects.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Effects")))
+	%VolumeMaster.value = 100 * db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	%VolumeMusic.value = 100 * db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	%VolumeEffects.value = 100 * db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Effects")))
 	
 	# set the initial alpha to fully transparent then fade in
 	$Background.modulate.a = 0
@@ -33,14 +33,17 @@ func _on_back_pressed() -> void:
 
 func _on_master_volume_drag_ended(value_changed: bool) -> void:
 	if not value_changed: return
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(%VolumeMaster.value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(%VolumeMaster.value / 100))
+	Global.save_settings()
 
 
 func _on_music_volume_drag_ended(value_changed: bool) -> void:
 	if not value_changed: return
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(%VolumeMusic.value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(%VolumeMusic.value / 100))
+	Global.save_settings()
 
 
 func _on_effects_volume_drag_ended(value_changed: bool) -> void:
 	if not value_changed: return
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(%VolumeEffects.value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(%VolumeEffects.value / 100))
+	Global.save_settings()

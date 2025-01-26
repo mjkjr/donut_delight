@@ -3,8 +3,6 @@ extends Node
 ##
 ## A cute donut merging game
 
-## TESTING: Audio settings
-
 ## TODO: Experiment with different softbody settings to slightly reduce their bounciness
 ## ATTENTION TODO: Add slight size variations of donuts
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
@@ -59,8 +57,6 @@ var objects: Dictionary = {}
 
 
 func _ready() -> void:
-	load_high_score()
-	
 	# set the initial alpha to fully transparent
 	$Contents.modulate.a = 0
 	# fade the scene alpha in
@@ -212,6 +208,9 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 				Global.high_score = Global.score
 				%Score.text = Global.format_large_integer(Global.high_score)
 				
+				# Batch save settings to avoid constantly writing to file
+				%BatchSaveTimer.start()
+				
 				if %ScoreLabel.text != "HIGH SCORE":
 					%Flash.visible = true
 					var tween = get_tree().create_tween()
@@ -233,12 +232,15 @@ func _on_top_body_entered(body: Node2D) -> void:
 		# highlight the losing object
 		body.get_parent().modulate = Color(1, 0, 0, 1)
 		pause_gameplay()
-		save_high_score()
+		Global.save_settings()
 		var game_over_menu = GAME_OVER_MENU.instantiate()
 		%UI.add_child(game_over_menu)
 
 
 func pause_gameplay() -> void:
+	# Manually save settings
+	%BatchSaveTimer.stop()
+	_on_batch_save_timer_timeout()
 	get_tree().paused = true
 
 
@@ -246,14 +248,5 @@ func unpause_gameplay() -> void:
 	get_tree().paused = false
 
 
-func save_high_score() -> void:
-	if Global.score == Global.high_score:
-		var file = FileAccess.open("user://hiscore", FileAccess.WRITE)
-		if file != null:
-			file.store_string(str(Global.high_score))
-
-
-func load_high_score() -> void:
-	var file = FileAccess.open("user://hiscore", FileAccess.READ)
-	if file != null:
-		Global.high_score = int(file.get_as_text())
+func _on_batch_save_timer_timeout() -> void:
+	Global.save_settings()
