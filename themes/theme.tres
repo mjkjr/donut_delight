@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cbs1608u20kwu"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cbs1608u20kwu"]
 
 [ext_resource type="FontFile" uid="uid://cke67unuocwpa" path="res://assets/fonts/concert-one/concertone-regular.ttf" id="1_hd677"]
 
@@ -42,6 +42,22 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="ImageTexture" id="ImageTexture_v5l05"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_oyaq0"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_x5g4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70ax7"]
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.864085, 0.444893, 0.590989, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwsrr"]
 content_margin_left = 65.0
 content_margin_top = 50.0
@@ -63,6 +79,10 @@ Button/styles/focus = SubResource("StyleBoxFlat_usww7")
 Button/styles/hover = SubResource("StyleBoxFlat_ointw")
 Button/styles/normal = SubResource("StyleBoxFlat_p0mbq")
 Button/styles/pressed = SubResource("StyleBoxFlat_r2vwb")
+HSlider/icons/grabber = SubResource("ImageTexture_v5l05")
+HSlider/icons/grabber_disabled = SubResource("ImageTexture_oyaq0")
+HSlider/icons/grabber_highlight = SubResource("ImageTexture_x5g4i")
+HSlider/styles/slider = SubResource("StyleBoxFlat_70ax7")
 Label/font_sizes/font_size = 36
 Label/fonts/font = ExtResource("1_hd677")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_pwsrr")

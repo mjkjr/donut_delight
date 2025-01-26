@@ -48,18 +48,69 @@ theme_override_font_sizes/font_size = 72
 text = "Options"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Contents"]
-offset_left = 354.0
-offset_top = 584.0
-offset_right = 790.0
-offset_bottom = 634.0
+[node name="CenterContainer" type="CenterContainer" parent="Contents"]
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="VolumeLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("3_s503x")
-text = "Option items will go here"
+theme_override_font_sizes/font_size = 60
+text = "VOLUME"
+horizontal_alignment = 1
+
+[node name="MasterLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s503x")
+theme_override_font_sizes/font_size = 48
+text = "Master"
+horizontal_alignment = 1
+
+[node name="VolumeMaster" type="HSlider" parent="Contents/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_s503x")
+max_value = 1.0
+step = 0.01
+
+[node name="MusicLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s503x")
+theme_override_font_sizes/font_size = 48
+text = "Music"
+horizontal_alignment = 1
+
+[node name="VolumeMusic" type="HSlider" parent="Contents/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_s503x")
+max_value = 1.0
+step = 0.01
+
+[node name="EffectsLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s503x")
+theme_override_font_sizes/font_size = 48
+text = "Effects"
+horizontal_alignment = 1
+
+[node name="VolumeEffects" type="HSlider" parent="Contents/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_s503x")
+max_value = 1.0
+step = 0.01
 
 [node name="Back" type="Button" parent="Contents"]
 offset_left = 480.0
 offset_top = 1685.0
-offset_right = 626.0
+offset_right = 633.0
 offset_bottom = 1776.0
 theme = ExtResource("3_s503x")
 text = "Back"
@@ -70,4 +121,7 @@ text = "Back"
 stream = ExtResource("3_w06ke")
 bus = &"Effects"
 
+[connection signal="drag_ended" from="Contents/CenterContainer/VBoxContainer/VolumeMaster" to="." method="_on_master_volume_drag_ended"]
+[connection signal="drag_ended" from="Contents/CenterContainer/VBoxContainer/VolumeMusic" to="." method="_on_music_volume_drag_ended"]
+[connection signal="drag_ended" from="Contents/CenterContainer/VBoxContainer/VolumeEffects" to="." method="_on_effects_volume_drag_ended"]
 [connection signal="pressed" from="Contents/Back" to="." method="_on_back_pressed"]

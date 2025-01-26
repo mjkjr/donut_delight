@@ -1,12 +1,16 @@
 extends Node
 ## Global game state and scene switching
 
+## TODO: Save and load audio bus settings
+
+# Audio
 const MUSIC_TRACK = preload("res://assets/audio/music/Lofi hip hop Volume 1) - 06 - Soft Lights (Loop Version).mp3")
-
-var current_scene = null
-
 var music: AudioStreamPlayer = null
 
+# Scene management
+var current_scene = null
+
+# Scoring
 var score: int = 0
 var high_score: int = 0
 
@@ -14,7 +18,16 @@ var high_score: int = 0
 func _ready() -> void:
 	# the last child of the root is the current scene
 	current_scene = get_tree().current_scene
+	
+	# set the initial bus volumes
+	## TODO: Save and load audio bus volumes
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.5))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(0.5))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(0.5))
+	
+	# prepare the music stream
 	music = AudioStreamPlayer.new()
+	music.bus = "Music"
 	music.stream = MUSIC_TRACK
 	music.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(music)
