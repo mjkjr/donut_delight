@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=35 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
@@ -30,15 +30,17 @@
 [ext_resource type="AudioStream" uid="uid://em7a52ixh102" path="res://assets/audio/effects/merge.wav" id="16_h16gy"]
 [ext_resource type="AudioStream" uid="uid://i7a2v4u8nb8d" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="17_544n2"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_8ir2r"]
-a = Vector2(0, -400)
-b = Vector2(0, 640)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kgbu6"]
+normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0agsg"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ip8lq"]
+normal = Vector2(-1, 0)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_eccye"]
-a = Vector2(-541, 0)
-b = Vector2(541, 0)
+a = Vector2(-412, 0)
+b = Vector2(412, 0)
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_4fdod"]
 frames = 11
@@ -243,7 +245,7 @@ points = PackedVector2Array(0, -400, 0, 640)
 default_color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Left"]
-shape = SubResource("SegmentShape2D_8ir2r")
+shape = SubResource("WorldBoundaryShape2D_kgbu6")
 
 [node name="Bottom" type="StaticBody2D" parent="Contents/Gameplay/Boundaries"]
 position = Vector2(540, 1600)
@@ -263,7 +265,7 @@ points = PackedVector2Array(0, -400, 0, 640)
 default_color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Right"]
-shape = SubResource("SegmentShape2D_8ir2r")
+shape = SubResource("WorldBoundaryShape2D_ip8lq")
 
 [node name="Top" type="Area2D" parent="Contents/Gameplay/Boundaries"]
 position = Vector2(540, 499)
@@ -410,15 +412,6 @@ texture = ExtResource("8_xoobg")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("4_17w03")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="TextureRect8" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
@@ -452,6 +445,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_yqnpx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_17w03")
 expand_mode = 1
 stretch_mode = 5
 

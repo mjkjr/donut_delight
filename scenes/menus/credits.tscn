@@ -41,9 +41,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 270.0
-offset_top = 349.0
+offset_top = 309.0
 offset_right = 545.0
-offset_bottom = 448.0
+offset_bottom = 408.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.192279
@@ -59,9 +59,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 161.0
-offset_top = 507.0
+offset_top = 434.5
 offset_right = 906.0
-offset_bottom = 1648.0
+offset_bottom = 1640.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -84,7 +84,10 @@ Fonts
 Font Squirrel
 
 Sound Effects
-TBD
+JDSherbert
+
+Additional Sound Effects
+Michael J. Kozubal Jr.
 
 Background Music
 Jeremy Leaird-Koch / Red Means Recording
@@ -98,9 +101,9 @@ horizontal_alignment = 1
 
 [node name="Dismiss" type="Button" parent="Contents"]
 offset_left = 460.0
-offset_top = 1690.0
-offset_right = 602.0
-offset_bottom = 1748.0
+offset_top = 1700.0
+offset_right = 688.0
+offset_bottom = 1779.0
 theme = ExtResource("3_2y6nc")
 text = "Dismiss"
 

@@ -3,7 +3,6 @@ extends Node
 ##
 ## A cute donut merging game
 
-## ATTENTION TODO: Add slight size variations of donuts
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
 ## POLISH
@@ -30,11 +29,11 @@ const OBJECTS = [
 	preload("res://scenes/donuts/donut09.tscn"),
 	preload("res://scenes/donuts/donut10.tscn"),
 	preload("res://scenes/donuts/donut07.tscn"),
-	preload("res://scenes/donuts/donut03.tscn"),
 	preload("res://scenes/donuts/donut08.tscn"),
 	preload("res://scenes/donuts/donut04.tscn"),
 	preload("res://scenes/donuts/donut05.tscn"),
 	preload("res://scenes/donuts/donut06.tscn"),
+	preload("res://scenes/donuts/donut03.tscn"),
 	preload("res://scenes/donuts/donut11.tscn"),
 ]
 const MAX_OBJECT_INDEX: int = 10
