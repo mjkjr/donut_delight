@@ -3,7 +3,6 @@ extends Node
 ##
 ## A cute donut merging game
 
-## TODO: Experiment with different softbody settings to slightly reduce their bounciness
 ## ATTENTION TODO: Add slight size variations of donuts
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
@@ -159,8 +158,8 @@ func spawn_object(index: int, position: Vector2) -> void:
 	new_object.position = position
 	bind_softbody_collision(new_object)
 	var tween = get_tree().create_tween()
-	tween.tween_property(new_object, "scale", Vector2(0.1, 0.1), 0)
-	tween.tween_property(new_object, "scale", Vector2(1, 1), 0.25)
+	tween.tween_property(new_object, "scale", Vector2(0.05, 0.05), 0)
+	tween.tween_property(new_object, "scale", Vector2(1, 1), 0.2)
 
 
 func bind_softbody_collision(object: Node2D) -> void:
@@ -209,7 +208,8 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 				%Score.text = Global.format_large_integer(Global.high_score)
 				
 				# Batch save settings to avoid constantly writing to file
-				%BatchSaveTimer.start()
+				if %BatchSaveTimer.is_stopped():
+					%BatchSaveTimer.start()
 				
 				if %ScoreLabel.text != "HIGH SCORE":
 					%Flash.visible = true
