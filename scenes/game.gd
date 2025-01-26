@@ -3,15 +3,14 @@ extends Node
 ##
 ## A cute donut merging game
 
+## TESTING: Audio settings
+
 ## TODO: Experiment with different softbody settings to slightly reduce their bounciness
-
-## TODO: Audio settings
-## TODO: Align menu buttons
-
 ## ATTENTION TODO: Add slight size variations of donuts
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
 ## POLISH
+## TODO: Align menu buttons
 ## TODO: Add a losing audio sound effect
 ## TODO: Add "puff" particle effect when objects merge
 ## TODO: Add floating numbers upon scoring
@@ -20,7 +19,6 @@ extends Node
 ## TODO: Add zoom in label on high score
 ## TODO: Spawn trail behind snail on credits screen
 ## TODO: Improve buttons color scheme (in theme)
-
 ## ATTENTION: Add art to title screen
 ## ATTENTION: Add "Why No Ads?" screen to menu
 ## ATTENTION: Update icon

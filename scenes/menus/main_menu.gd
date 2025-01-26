@@ -12,6 +12,7 @@ func _ready() -> void:
 	$Contents.modulate.a = 0
 	var tween = get_tree().create_tween()
 	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 1.5)
+	Global.play_music_track()
 
 
 func _on_credits_pressed() -> void:

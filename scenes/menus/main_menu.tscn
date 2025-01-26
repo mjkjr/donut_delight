@@ -39,38 +39,29 @@ text = "Donut Delight"
 horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="Contents"]
-offset_left = 445.0
-offset_top = 629.0
-offset_right = 550.0
-offset_bottom = 704.0
+offset_left = 442.0
+offset_top = 683.0
+offset_right = 643.0
+offset_bottom = 797.0
 theme = ExtResource("3_3cjaw")
+theme_override_font_sizes/font_size = 96
 text = "Play"
 
 [node name="Options" type="Button" parent="Contents"]
-offset_left = 529.0
-offset_top = 779.0
-offset_right = 720.0
-offset_bottom = 854.0
+offset_left = 536.0
+offset_top = 947.0
+offset_right = 763.0
+offset_bottom = 1026.0
 theme = ExtResource("3_3cjaw")
 text = "Options"
 
 [node name="Credits" type="Button" parent="Contents"]
-offset_left = 396.0
-offset_top = 921.0
-offset_right = 568.0
-offset_bottom = 996.0
+offset_left = 390.0
+offset_top = 1163.0
+offset_right = 608.0
+offset_bottom = 1242.0
 theme = ExtResource("3_3cjaw")
 text = "Credits"
-
-[node name="Label" type="Label" parent="Contents"]
-offset_left = 233.0
-offset_top = 398.0
-offset_right = 939.0
-offset_bottom = 486.0
-rotation = 0.13961
-theme = ExtResource("3_3cjaw")
-theme_override_font_sizes/font_size = 64
-text = "TODO: make this purty"
 
 [node name="Audio" type="Node" parent="."]
 

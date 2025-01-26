@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=34 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
@@ -27,7 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://cp5k010g57tk8" path="res://assets/fire/fire_467_8.png" id="13_wmov1"]
 [ext_resource type="Texture2D" uid="uid://chx7gajcxqpf0" path="res://assets/fire/fire_467_9.png" id="14_gtdk3"]
 [ext_resource type="Texture2D" uid="uid://k2unu0ov3ql3" path="res://assets/fire/fire_467_10.png" id="15_380bd"]
-[ext_resource type="AudioStream" uid="uid://dki6de8ea21tu" path="res://assets/audio/music/Lofi hip hop Volume 1) - 06 - Soft Lights (Loop Version).mp3" id="15_pjdft"]
 [ext_resource type="AudioStream" uid="uid://em7a52ixh102" path="res://assets/audio/effects/merge.wav" id="16_h16gy"]
 [ext_resource type="AudioStream" uid="uid://i7a2v4u8nb8d" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="17_544n2"]
 
@@ -474,11 +473,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Audio" type="Node" parent="."]
-
-[node name="Music" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("15_pjdft")
-autoplay = true
-bus = &"Music"
 
 [node name="Merge" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("16_h16gy")
