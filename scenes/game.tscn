@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=36 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://k2unu0ov3ql3" path="res://assets/fire/fire_467_10.png" id="15_380bd"]
 [ext_resource type="AudioStream" uid="uid://em7a52ixh102" path="res://assets/audio/effects/merge.wav" id="16_h16gy"]
 [ext_resource type="AudioStream" uid="uid://i7a2v4u8nb8d" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="17_544n2"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="30_rds6v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kgbu6"]
 normal = Vector2(1, 0)
@@ -78,8 +79,10 @@ color = Color(0, 0, 0, 1)
 [node name="Contents" type="Node2D" parent="."]
 
 [node name="Background" type="TextureRect" parent="Contents"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 1130.0
+offset_bottom = 1970.0
 texture = ExtResource("2_6x0ur")
 
 [node name="Gameplay" type="Node2D" parent="Contents"]
@@ -490,6 +493,10 @@ bus = &"Effects"
 unique_name_in_owner = true
 wait_time = 5.0
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("30_rds6v")
 
 [connection signal="body_entered" from="Contents/Gameplay/Boundaries/Top" to="." method="_on_top_body_entered"]
 [connection signal="timeout" from="BatchSaveTimer" to="." method="_on_batch_save_timer_timeout"]
