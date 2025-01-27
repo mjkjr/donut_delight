@@ -3,22 +3,22 @@ extends Node
 ##
 ## A cute donut merging game
 
-## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
+## TODO: Add zoom in label on initial high score surpassed
 
-## TODO: Add screen shake setting on options menu
-
+## TODO: Add Focus settings for menu items
 ## TODO: Add a losing audio sound effect
 ## TODO: Align menu buttons
 ## TODO: Add "puff" particle effect when objects merge
 ## TODO: Add floating numbers upon scoring
 ## TODO: Add "How to Play" instructions when starting a game
-## TODO: Add zoom in label on high score
 ## TODO: Spawn trail behind snail on credits screen
 ## TODO: Improve buttons color scheme (in theme)
+## TODO: Improve slider color scheme (in theme)
 ## ATTENTION: Add art to title screen
 ## ATTENTION: Add "Why No Ads?" screen to menu
 ## ATTENTION: Update icon
 ## TODO: Take screen shots
+## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
@@ -212,7 +212,7 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 					%BatchSaveTimer.start()
 				
 				if %ScoreLabel.text != "HIGH SCORE":
-					$Camera2D.shake(500, 5)
+					$Camera2D.shake(Global.screen_shake_factor, 500, 5)
 					%Flash.visible = true
 					var tween = get_tree().create_tween()
 					tween.tween_property(%Flash, "modulate", Color(1, 1, 1, 1), 0.1)
@@ -222,9 +222,9 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 					tween.tween_property(%Flash, "modulate", Color(1, 1, 1, 0), 0.1)
 					tween.tween_property(%Flash, "visible", false, 0)
 				else:
-					$Camera2D.shake()
+					$Camera2D.shake(Global.screen_shake_factor)
 			else:
-				$Camera2D.shake()
+				$Camera2D.shake(Global.screen_shake_factor)
 
 
 # detect game over condition

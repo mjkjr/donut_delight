@@ -1,16 +1,24 @@
 extends Node
 ## Global game state and scene switching
 
+signal screen_shake_factor_changed(new_value: float)
+
 # Audio
 const MUSIC_TRACK = preload("res://assets/audio/music/Lofi hip hop Volume 1) - 06 - Soft Lights (Loop Version).mp3")
 var music: AudioStreamPlayer = null
 
-# Scene management
-var current_scene = null
-
 # Scoring
 var score: int = 0
 var high_score: int = 0
+
+# Screen shake dampen factor
+var screen_shake_factor: float = 1.0:
+	set(value):
+		screen_shake_factor = snapped(clampf(value, 0.0, 1.0), 0.1)
+		screen_shake_factor_changed.emit(screen_shake_factor)
+
+# Scene management
+var current_scene = null
 
 
 func _ready() -> void:
@@ -31,12 +39,13 @@ func save_settings() -> void:
 	var file = FileAccess.open("user://settings", FileAccess.WRITE)
 	if file != null:
 		## format:
-		## master volume, music volue, effects volume, high_score
+		## master volume, music volue, effects volume, screen shake factor, high_score
 		var settings = PackedStringArray(
 			[
 				str(snapped(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))), 0.01)),
 				str(snapped(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))), 0.01)),
 				str(snapped(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Effects"))), 0.01)),
+				str(screen_shake_factor),
 				str(high_score)
 			]
 		)
@@ -52,7 +61,8 @@ func load_settings() -> void:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(float(settings[0])))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(float(settings[1])))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(float(settings[2])))
-		high_score = int(settings[3])
+		screen_shake_factor = float(settings[3])
+		high_score = int(settings[4])
 	else:
 		# set default bus volumes
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.5))

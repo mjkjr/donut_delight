@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cbs1608u20kwu"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cbs1608u20kwu"]
 
 [ext_resource type="FontFile" uid="uid://cke67unuocwpa" path="res://assets/fonts/concert-one/concertone-regular.ttf" id="1_hd677"]
 
@@ -42,6 +42,9 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3cmbq"]
+thickness = 0
+
 [sub_resource type="ImageTexture" id="ImageTexture_v5l05"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_oyaq0"]
@@ -79,6 +82,7 @@ Button/styles/focus = SubResource("StyleBoxFlat_usww7")
 Button/styles/hover = SubResource("StyleBoxFlat_ointw")
 Button/styles/normal = SubResource("StyleBoxFlat_p0mbq")
 Button/styles/pressed = SubResource("StyleBoxFlat_r2vwb")
+HSeparator/styles/separator = SubResource("StyleBoxLine_3cmbq")
 HSlider/icons/grabber = SubResource("ImageTexture_v5l05")
 HSlider/icons/grabber_disabled = SubResource("ImageTexture_oyaq0")
 HSlider/icons/grabber_highlight = SubResource("ImageTexture_x5g4i")

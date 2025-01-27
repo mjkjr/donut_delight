@@ -60,19 +60,18 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="VolumeLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
+[node name="AudioSettingsLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_s503x")
 theme_override_font_sizes/font_size = 60
-text = "VOLUME"
+text = "AUDIO SETTINGS"
 horizontal_alignment = 1
 
 [node name="MasterLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_s503x")
 theme_override_font_sizes/font_size = 48
-text = "Master"
-horizontal_alignment = 1
+text = "Master Volume"
 
 [node name="VolumeMaster" type="HSlider" parent="Contents/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -84,8 +83,7 @@ rounded = true
 layout_mode = 2
 theme = ExtResource("3_s503x")
 theme_override_font_sizes/font_size = 48
-text = "Music"
-horizontal_alignment = 1
+text = "Music Volume"
 
 [node name="VolumeMusic" type="HSlider" parent="Contents/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -97,13 +95,37 @@ rounded = true
 layout_mode = 2
 theme = ExtResource("3_s503x")
 theme_override_font_sizes/font_size = 48
-text = "Effects"
-horizontal_alignment = 1
+text = "Effects Volume"
 
 [node name="VolumeEffects" type="HSlider" parent="Contents/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_s503x")
+rounded = true
+
+[node name="HSeparator" type="HSeparator" parent="Contents/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s503x")
+theme_override_constants/separation = 25
+
+[node name="EffectsSettingsLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s503x")
+theme_override_font_sizes/font_size = 60
+text = "EFFECTS SETTINGS"
+horizontal_alignment = 1
+
+[node name="ScreenShakeLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_s503x")
+theme_override_font_sizes/font_size = 48
+text = "Screen Shake"
+
+[node name="ScreenShake" type="HSlider" parent="Contents/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_s503x")
+max_value = 10.0
 rounded = true
 
 [node name="Back" type="Button" parent="Contents"]
@@ -123,4 +145,5 @@ bus = &"Effects"
 [connection signal="drag_ended" from="Contents/CenterContainer/VBoxContainer/VolumeMaster" to="." method="_on_master_volume_drag_ended"]
 [connection signal="drag_ended" from="Contents/CenterContainer/VBoxContainer/VolumeMusic" to="." method="_on_music_volume_drag_ended"]
 [connection signal="drag_ended" from="Contents/CenterContainer/VBoxContainer/VolumeEffects" to="." method="_on_effects_volume_drag_ended"]
+[connection signal="drag_ended" from="Contents/CenterContainer/VBoxContainer/ScreenShake" to="." method="_on_screen_shake_drag_ended"]
 [connection signal="pressed" from="Contents/Back" to="." method="_on_back_pressed"]
