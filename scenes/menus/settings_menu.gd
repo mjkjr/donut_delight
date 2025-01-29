@@ -6,6 +6,7 @@ func _ready() -> void:
 	%VolumeMusic.value = 100 * db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	%VolumeEffects.value = 100 * db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Effects")))
 	%ScreenShake.value = 10 * Global.screen_shake_factor
+	%ScreenFlashButton.button_pressed = not Global.screen_flash_enabled
 	
 	# set the initial alpha to fully transparent then fade in
 	$Background.modulate.a = 0
@@ -51,3 +52,12 @@ func _on_effects_volume_drag_ended(value_changed: bool) -> void:
 func _on_screen_shake_drag_ended(value_changed: bool) -> void:
 	if not value_changed: return
 	Global.screen_shake_factor = %ScreenShake.value / 10.0
+
+
+func _on_screen_flash_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		%ScreenFlashButton.text = "Disabled"
+		Global.screen_flash_enabled = false
+	else:
+		%ScreenFlashButton.text = "Enabled"
+		Global.screen_flash_enabled = true

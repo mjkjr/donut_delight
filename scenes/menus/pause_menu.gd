@@ -2,7 +2,7 @@ extends Node2D
 
 signal resume
 
-const OPTIONS_MENU = preload("res://scenes/menus/options_menu.tscn")
+const SETTINGS_MENU = preload("res://scenes/menus/settings_menu.tscn")
 const CREDITS = preload("res://scenes/menus/credits.tscn")
 const LEAVE_GAME_MENU = preload("res://scenes/menus/leave_game_menu.tscn")
 
@@ -37,9 +37,9 @@ func _on_resume_pressed() -> void:
 	)
 
 
-func _on_options_pressed() -> void:
+func _on_settings_pressed() -> void:
 	$Audio/Button.play()
-	add_child(OPTIONS_MENU.instantiate())
+	add_child(SETTINGS_MENU.instantiate())
 
 
 func _on_credits_pressed() -> void:

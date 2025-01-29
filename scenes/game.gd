@@ -3,22 +3,32 @@ extends Node
 ##
 ## A cute donut merging game
 
-## TODO: Add zoom in label on initial high score surpassed
+## BUGS
+## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
-## TODO: Add Focus settings for menu items
-## TODO: Add a losing audio sound effect
-## TODO: Align menu buttons
-## TODO: Add "puff" particle effect when objects merge
-## TODO: Add floating numbers upon scoring
-## TODO: Add "How to Play" instructions when starting a game
-## TODO: Spawn trail behind snail on credits screen
+## MENUS
 ## TODO: Improve buttons color scheme (in theme)
 ## TODO: Improve slider color scheme (in theme)
-## ATTENTION: Add art to title screen
+
+## SCORING
+## TODO: Add sound effect on High Score achieved
+## TODO: Add floating numbers upon scoring
+
+## TUTORIAL
+## TODO: Add "How to Play" instructions when starting a game
+
+## MISC / POLISH
+## TODO: Display current High Score somewhere
+## TODO: Add a losing audio sound effect
+## TODO: Add "puff" particle effect when objects merge
+## TODO: Spawn trail behind snail on credits screen
+
+## PRE-RELEASE
 ## ATTENTION: Add "Why No Ads?" screen to menu
+## ATTENTION: Add art to title screen
 ## ATTENTION: Update icon
 ## TODO: Take screen shots
-## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
+## TODO: Organize license files
 
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
@@ -39,6 +49,9 @@ const OBJECTS = [
 ]
 const MAX_OBJECT_INDEX: int = 10
 
+
+var high_score_set: bool = false
+
 var game_over: bool = false
 
 var player_control_active: bool = false
@@ -58,12 +71,12 @@ var objects: Dictionary = {}
 func _ready() -> void:
 	# set the initial alpha to fully transparent
 	$Contents.modulate.a = 0
-	# fade the scene alpha in
-	var tween = get_tree().create_tween()
-	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 0.5)
-	# fade the UI in
-	tween.set_parallel()
 	$Contents/UI/MarginContainer.modulate.a = 0
+	# fade the scene alpha in
+	var tween = $Contents.create_tween()
+	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 0.5)
+	tween.parallel()
+	# fade the UI in
 	tween.tween_property($Contents/UI/MarginContainer, "modulate", Color(1, 1, 1, 1), 2)
 	
 	# Create the initial game objects
@@ -106,10 +119,9 @@ func move() -> void:
 	elif bounded_x > %Boundaries/Right.position.x - current_item_offset.x:
 		bounded_x = %Boundaries/Right.position.x - current_item_offset.x
 	
-	var tween = get_tree().create_tween()
+	var tween = current_item.create_tween()
 	tween.tween_property(%Spawner, "position:x", bounded_x, 0.25)
-	tween.parallel()
-	tween.tween_property(current_item, "position:x", bounded_x, 0.25)
+	tween.parallel().tween_property(current_item, "position:x", bounded_x, 0.25)
 
 
 func drop_item() -> void:
@@ -117,9 +129,9 @@ func drop_item() -> void:
 	%Boundaries/Top.monitoring = false
 	current_item.get_node("SoftBody2D").gravity_scale = 1
 	$Audio/Drop.play()
-	var tween = get_tree().create_tween()
+	var tween = %Spawner.create_tween()
 	tween.tween_property(%Spawner, "modulate", Color(1, 1, 1, 0), 0.25)
-	tween.tween_interval(2)
+	tween.tween_interval(1)
 	tween.tween_callback(
 		func():
 			%Boundaries/Top.monitoring = true
@@ -136,7 +148,7 @@ func make_next_item_current() -> void:
 	current_item.position.x = %Spawner.position.x
 	current_item.position.y = 250
 	bind_softbody_collision(current_item)
-	var tween = get_tree().create_tween()
+	var tween = current_item.create_tween()
 	tween.tween_property(current_item, "scale", Vector2(2, 2), 0)
 	tween.tween_property(current_item, "scale", Vector2(1, 1), 0.25)
 	tween.tween_callback(func(): player_control_active = true)
@@ -157,7 +169,7 @@ func spawn_object(index: int, position: Vector2) -> void:
 	objects[new_object.get_path()] = index
 	new_object.position = position
 	bind_softbody_collision(new_object)
-	var tween = get_tree().create_tween()
+	var tween = new_object.create_tween()
 	tween.tween_property(new_object, "scale", Vector2(0.05, 0.05), 0)
 	tween.tween_property(new_object, "scale", Vector2(1, 1), 0.2)
 
@@ -200,9 +212,12 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 			# Spawn the new object
 			call_deferred("spawn_object", object_index + 1, new_object_position)
 			
+			$Camera2D.shake(Global.screen_shake_factor)
+			
 			# Increment the score
 			Global.score += 100 * (1 + object_index)
 			%Score.text = Global.format_large_integer(Global.score)
+			
 			if Global.score > Global.high_score:
 				Global.high_score = Global.score
 				%Score.text = Global.format_large_integer(Global.high_score)
@@ -211,20 +226,14 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 				if %BatchSaveTimer.is_stopped():
 					%BatchSaveTimer.start()
 				
-				if %ScoreLabel.text != "HIGH SCORE":
-					$Camera2D.shake(Global.screen_shake_factor, 500, 5)
-					%Flash.visible = true
-					var tween = get_tree().create_tween()
-					tween.tween_property(%Flash, "modulate", Color(1, 1, 1, 1), 0.1)
-					tween.tween_property(%ScoreLabel, "text", "HIGH SCORE", 0)
-					tween.tween_property(%Spacer, "visible", false, 0)
-					tween.tween_property(%Fire, "visible", true, 0)
-					tween.tween_property(%Flash, "modulate", Color(1, 1, 1, 0), 0.1)
-					tween.tween_property(%Flash, "visible", false, 0)
-				else:
-					$Camera2D.shake(Global.screen_shake_factor)
-			else:
-				$Camera2D.shake(Global.screen_shake_factor)
+				# Only play high score effect once
+				if not high_score_set:
+					high_score_set = true
+					
+					if Global.screen_flash_enabled:
+						%HighScoreEffect/AnimationPlayer.play("high_score_effect")
+					else:
+						%HighScoreEffect/AnimationPlayer.play("high_score_effect_no_flash")
 
 
 # detect game over condition
@@ -255,3 +264,7 @@ func unpause_gameplay() -> void:
 
 func _on_batch_save_timer_timeout() -> void:
 	Global.save_settings()
+
+
+func _shake_on_high_score() -> void:
+	$Camera2D.shake(Global.screen_shake_factor, 300, 3)

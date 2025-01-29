@@ -26,6 +26,5 @@ func _on_dismiss_pressed() -> void:
 	tween.tween_callback(
 		func():
 			get_tree().paused = false
-			Global.score = 0
 			Global.goto_scene("res://scenes/menus/main_menu.tscn")
 	)

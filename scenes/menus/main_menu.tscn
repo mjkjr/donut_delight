@@ -22,46 +22,60 @@ offset_right = 1130.0
 offset_bottom = 1970.0
 texture = ExtResource("2_sdj1v")
 
-[node name="Title" type="Label" parent="Contents"]
+[node name="mjkjr" type="Label" parent="Contents"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 316.0
-offset_top = 188.0
-offset_right = 769.0
-offset_bottom = 287.0
+offset_left = 301.5
+offset_top = 501.527
+offset_right = 778.5
+offset_bottom = 600.527
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
+rotation = -0.139154
 theme = ExtResource("3_3cjaw")
 theme_override_font_sizes/font_size = 96
+text = "an mjkjr game"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Contents"]
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 1080.0
+offset_bottom = 1920.0
+theme_override_constants/margin_top = 125
+
+[node name="Title" type="Label" parent="Contents/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_3cjaw")
+theme_override_font_sizes/font_size = 120
 text = "Donut Delight"
 horizontal_alignment = 1
 
-[node name="Play" type="Button" parent="Contents"]
-offset_left = 442.0
-offset_top = 683.0
-offset_right = 643.0
-offset_bottom = 797.0
+[node name="CenterContainer" type="CenterContainer" parent="Contents/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(432, 0)
+layout_mode = 2
+theme_override_constants/separation = 72
+
+[node name="Play" type="Button" parent="Contents/MarginContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme = ExtResource("3_3cjaw")
 theme_override_font_sizes/font_size = 96
 text = "Play"
 
-[node name="Options" type="Button" parent="Contents"]
-offset_left = 536.0
-offset_top = 947.0
-offset_right = 763.0
-offset_bottom = 1026.0
+[node name="Settings" type="Button" parent="Contents/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("3_3cjaw")
-text = "Options"
+text = "Settings"
 
-[node name="Credits" type="Button" parent="Contents"]
-offset_left = 390.0
-offset_top = 1163.0
-offset_right = 608.0
-offset_bottom = 1242.0
+[node name="Credits" type="Button" parent="Contents/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("3_3cjaw")
 text = "Credits"
 
@@ -71,6 +85,6 @@ text = "Credits"
 stream = ExtResource("3_eax65")
 bus = &"Effects"
 
-[connection signal="pressed" from="Contents/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Contents/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Contents/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/CenterContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

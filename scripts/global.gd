@@ -17,6 +17,9 @@ var screen_shake_factor: float = 1.0:
 		screen_shake_factor = snapped(clampf(value, 0.0, 1.0), 0.1)
 		screen_shake_factor_changed.emit(screen_shake_factor)
 
+# Screen flash enabled/disabled setting
+var screen_flash_enabled: bool = true
+
 # Scene management
 var current_scene = null
 
@@ -46,6 +49,7 @@ func save_settings() -> void:
 				str(snapped(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))), 0.01)),
 				str(snapped(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Effects"))), 0.01)),
 				str(screen_shake_factor),
+				str(screen_flash_enabled),
 				str(high_score)
 			]
 		)
@@ -56,13 +60,17 @@ func load_settings() -> void:
 	var file = FileAccess.open("user://settings", FileAccess.READ)
 	if file != null:
 		## format:
-		## master volume, music volue, effects volume, high_score
+		## master volume, music volue, effects volume, screen shake factor, screen flash enabled, high_score
 		var settings = file.get_csv_line()
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(float(settings[0])))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(float(settings[1])))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(float(settings[2])))
 		screen_shake_factor = float(settings[3])
-		high_score = int(settings[4])
+		if settings[4] == "true":
+			screen_flash_enabled = true
+		else:
+			screen_flash_enabled = false
+		high_score = int(settings[5])
 	else:
 		# set default bus volumes
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.5))

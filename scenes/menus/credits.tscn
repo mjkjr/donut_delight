@@ -26,46 +26,50 @@ offset_right = 1130.0
 offset_bottom = 1970.0
 texture = ExtResource("2_dbumv")
 
-[node name="Title" type="Label" parent="Contents"]
-offset_left = 208.0
-offset_top = 113.0
-offset_right = 853.0
-offset_bottom = 245.0
-theme = ExtResource("3_2y6nc")
-theme_override_font_sizes/font_size = 96
-text = "Donut Delight"
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="Contents"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 270.0
-offset_top = 309.0
-offset_right = 545.0
-offset_bottom = 408.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.192279
-theme = ExtResource("3_2y6nc")
-theme_override_font_sizes/font_size = 72
-text = "Credits"
-horizontal_alignment = 1
-
 [node name="Credits" type="Label" parent="Contents"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 161.0
-offset_top = 434.5
-offset_right = 906.0
-offset_bottom = 1640.5
+offset_left = 301.5
+offset_top = 309.527
+offset_right = 778.5
+offset_bottom = 408.527
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.139154
+theme = ExtResource("3_2y6nc")
+theme_override_font_sizes/font_size = 96
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Contents"]
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 1080.0
+offset_bottom = 1920.0
+theme_override_constants/margin_top = 96
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 72
+
+[node name="Title" type="Label" parent="Contents/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_2y6nc")
+theme_override_font_sizes/font_size = 120
+text = "Donut Delight"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Contents/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 72
+
+[node name="CreditsText" type="Label" parent="Contents/MarginContainer/VBoxContainer2"]
+layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_2y6nc")
 text = "Design & Code
@@ -101,11 +105,10 @@ Special Thanks
 Dragos Daian / SoftBody2D"
 horizontal_alignment = 1
 
-[node name="Dismiss" type="Button" parent="Contents"]
-offset_left = 460.0
-offset_top = 1700.0
-offset_right = 688.0
-offset_bottom = 1779.0
+[node name="Dismiss" type="Button" parent="Contents/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(432, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_2y6nc")
 text = "Dismiss"
 
@@ -134,5 +137,5 @@ position = Vector2(-22, 1923)
 stream = ExtResource("5_o37ff")
 bus = &"Effects"
 
-[connection signal="pressed" from="Contents/Dismiss" to="." method="_on_dismiss_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer2/Dismiss" to="." method="_on_dismiss_pressed"]
 [connection signal="off_screen" from="Contents/Greg" to="." method="_on_greg_off_screen"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=42 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dn3qfsl5uuwsr" path="res://assets/long_straight_right.png" id="2_mpbfl"]
 [ext_resource type="Texture2D" uid="uid://bn1jw1vj0yjr8" path="res://assets/objects/donut02.png" id="3_mdcg7"]
 [ext_resource type="Texture2D" uid="uid://g13wmm8gufar" path="res://assets/objects/donut03.png" id="4_17w03"]
+[ext_resource type="FontFile" uid="uid://bu1alfevqdkvo" path="res://assets/fonts/londrina/LondrinaSolid-Regular.otf" id="4_86e7u"]
 [ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="4_uwju3"]
 [ext_resource type="StyleBox" uid="uid://wrygpm4npqlo" path="res://themes/score_style_box_flat.tres" id="5_e8eya"]
 [ext_resource type="Texture2D" uid="uid://bisu3a5b5ndar" path="res://assets/fire/fire_467_1.png" id="5_knqc3"]
@@ -42,6 +43,367 @@ normal = Vector2(-1, 0)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_eccye"]
 a = Vector2(-412, 0)
 b = Vector2(412, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jcy7o"]
+font = ExtResource("4_86e7u")
+font_size = 200
+font_color = Color(0.627, 0.114, 0.2, 1)
+outline_size = 20
+shadow_size = 50
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-15, 20)
+
+[sub_resource type="Animation" id="Animation_hbcsf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%HighScoreEffect/High:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-203, -164)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%HighScoreEffect/Score:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-155, 105)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Flash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Flash:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%ScoreLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["SCORE"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%UI/MarginContainer/NextContainer/Spacer:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%Fire:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%HighScoreEffect:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%HighScoreEffect:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fxxfu"]
+resource_name = "high_score"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%HighScoreEffect/High:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-203, -164), Vector2(-1283, 916)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%HighScoreEffect/Score:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-155, 105), Vector2(-1235, 1185)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Gameplay/../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_shake_on_high_score"
+}, {
+"args": [],
+"method": &"_shake_on_high_score"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Flash:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Flash:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%ScoreLabel:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.41),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HIGH SCORE"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%UI/MarginContainer/NextContainer/Spacer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.41),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%Fire:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.41),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%HighScoreEffect:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%HighScoreEffect:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_7n5he"]
+resource_name = "high_score_effect_no_flash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%HighScoreEffect/High:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-203, -164), Vector2(-1283, 916)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%HighScoreEffect/Score:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-155, 105), Vector2(-1235, 1185)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Gameplay/../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_shake_on_high_score"
+}, {
+"args": [],
+"method": &"_shake_on_high_score"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%ScoreLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.41),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HIGH SCORE"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%UI/MarginContainer/NextContainer/Spacer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.41),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Fire:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.41),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%HighScoreEffect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%HighScoreEffect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f7r5y"]
+_data = {
+"RESET": SubResource("Animation_hbcsf"),
+"high_score_effect": SubResource("Animation_fxxfu"),
+"high_score_effect_no_flash": SubResource("Animation_7n5he")
+}
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_4fdod"]
 frames = 11
@@ -282,6 +644,48 @@ position = Vector2(540, 518)
 rotation = 1.57079
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_mpbfl")
+
+[node name="HighScoreEffect" type="Node2D" parent="Contents/Gameplay"]
+unique_name_in_owner = true
+position = Vector2(1525, -96)
+
+[node name="High" type="Label" parent="Contents/Gameplay/HighScoreEffect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -164.0
+offset_right = 141.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.399758
+text = "HIGH"
+label_settings = SubResource("LabelSettings_jcy7o")
+
+[node name="Score" type="Label" parent="Contents/Gameplay/HighScoreEffect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = 105.0
+offset_right = 389.0
+offset_bottom = 335.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.399758
+text = "SCORE!"
+label_settings = SubResource("LabelSettings_jcy7o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Contents/Gameplay/HighScoreEffect"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_f7r5y")
+}
 
 [node name="UI" type="CanvasLayer" parent="Contents"]
 unique_name_in_owner = true

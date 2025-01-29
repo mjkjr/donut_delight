@@ -30,50 +30,55 @@ offset_right = 1130.0
 offset_bottom = 1970.0
 texture = ExtResource("2_pd6i1")
 
-[node name="Title" type="Label" parent="Contents"]
-offset_left = 213.0
-offset_top = 186.0
-offset_right = 858.0
-offset_bottom = 318.0
-theme = ExtResource("3_rj4yt")
-theme_override_font_sizes/font_size = 96
-text = "Donut Delight"
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="Contents"]
+[node name="LeaveGame" type="Label" parent="Contents"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 295.0
+offset_left = 301.5
 offset_top = 629.527
-offset_right = 753.0
+offset_right = 778.5
 offset_bottom = 728.527
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.139154
 theme = ExtResource("3_rj4yt")
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 96
 text = "Leave Game?"
 horizontal_alignment = 1
 
-[node name="Leave" type="Button" parent="Contents"]
-offset_left = 433.0
-offset_top = 818.527
-offset_right = 627.0
-offset_bottom = 909.527
+[node name="MarginContainer" type="MarginContainer" parent="Contents"]
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_top = 125
+
+[node name="Title" type="Label" parent="Contents/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
 theme = ExtResource("3_rj4yt")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 120
+text = "Donut Delight"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Contents/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(432, 0)
+layout_mode = 2
+theme_override_constants/separation = 72
+
+[node name="Leave" type="Button" parent="Contents/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_rj4yt")
 text = "Leave"
 
-[node name="Remain" type="Button" parent="Contents"]
-offset_left = 346.0
-offset_top = 973.527
-offset_right = 709.0
-offset_bottom = 1064.53
+[node name="Remain" type="Button" parent="Contents/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("3_rj4yt")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 96
 text = "Remain"
 
 [node name="Audio" type="Node" parent="."]
@@ -86,5 +91,5 @@ bus = &"Effects"
 stream = ExtResource("4_8nfu0")
 bus = &"Effects"
 
-[connection signal="pressed" from="Contents/Leave" to="." method="_on_leave_pressed"]
-[connection signal="pressed" from="Contents/Remain" to="." method="_on_remain_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/CenterContainer/VBoxContainer/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/CenterContainer/VBoxContainer/Remain" to="." method="_on_remain_pressed"]
