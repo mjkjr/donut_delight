@@ -11,14 +11,13 @@ extends Node
 ## TODO: Improve slider color scheme (in theme)
 
 ## SCORING
-## TODO: Add sound effect on High Score achieved
+## TODO: Display current High Score somewhere
 ## TODO: Add floating numbers upon scoring
 
 ## TUTORIAL
 ## TODO: Add "How to Play" instructions when starting a game
 
 ## MISC / POLISH
-## TODO: Display current High Score somewhere
 ## TODO: Add a losing audio sound effect
 ## TODO: Add "puff" particle effect when objects merge
 ## TODO: Spawn trail behind snail on credits screen
@@ -229,6 +228,8 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 				# Only play high score effect once
 				if not high_score_set:
 					high_score_set = true
+					
+					$Audio/HighScore.play()
 					
 					if Global.screen_flash_enabled:
 						%HighScoreEffect/AnimationPlayer.play("high_score_effect")

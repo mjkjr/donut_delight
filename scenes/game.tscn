@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=43 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://em7a52ixh102" path="res://assets/audio/effects/merge.wav" id="16_h16gy"]
 [ext_resource type="AudioStream" uid="uid://i7a2v4u8nb8d" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="17_544n2"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="30_rds6v"]
+[ext_resource type="AudioStream" uid="uid://661buyg5mg4y" path="res://assets/audio/effects/SFX_HOLOGRAM_ON_SC-FI.wav" id="31_w0rlu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kgbu6"]
 normal = Vector2(1, 0)
@@ -891,6 +892,11 @@ bus = &"Effects"
 [node name="Drop" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("17_544n2")
 pitch_scale = 1.8
+bus = &"Effects"
+
+[node name="HighScore" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("31_w0rlu")
+volume_db = 5.0
 bus = &"Effects"
 
 [node name="BatchSaveTimer" type="Timer" parent="."]
