@@ -7,6 +7,7 @@ extends Node
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
 ## MENUS
+## TODO: Add a setting button to the game screen
 ## TODO: Improve buttons color scheme (in theme)
 ## TODO: Improve slider color scheme (in theme)
 
