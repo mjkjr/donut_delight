@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=47 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://k2unu0ov3ql3" path="res://assets/fire/fire_467_10.png" id="15_380bd"]
 [ext_resource type="AudioStream" uid="uid://em7a52ixh102" path="res://assets/audio/effects/merge.wav" id="16_h16gy"]
 [ext_resource type="AudioStream" uid="uid://i7a2v4u8nb8d" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="17_544n2"]
+[ext_resource type="Texture2D" uid="uid://jrynmfwwfq3y" path="res://assets/settings_3.png" id="29_pt8dm"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="30_rds6v"]
 [ext_resource type="AudioStream" uid="uid://661buyg5mg4y" path="res://assets/audio/effects/SFX_HOLOGRAM_ON_SC-FI.wav" id="31_w0rlu"]
 
@@ -442,6 +443,39 @@ _data = {
 "high_score_effect_no_flash": SubResource("Animation_7n5he")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rra7w"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.529412, 0.211765, 0.352941, 0.74902)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mpve"]
+content_margin_left = 7.0
+content_margin_top = 8.0
+content_margin_right = 5.0
+content_margin_bottom = 4.0
+bg_color = Color(0.529412, 0.211765, 0.352941, 0.74902)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pwf0"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.529412, 0.211765, 0.352941, 0.74902)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_4fdod"]
 frames = 11
 frame_0/texture = ExtResource("5_knqc3")
@@ -772,12 +806,21 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="NextLabel" type="Label" parent="Contents/UI/MarginContainer/NextContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("4_uwju3")
 text = "NEXT"
 horizontal_alignment = 1
+
+[node name="SettingsButton" type="Button" parent="Contents/UI/MarginContainer/NextContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_uwju3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rra7w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2mpve")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0pwf0")
+icon = ExtResource("29_pt8dm")
 
 [node name="ScoreContainer" type="VBoxContainer" parent="Contents/UI/MarginContainer"]
 layout_mode = 2
@@ -962,4 +1005,5 @@ anchor_mode = 0
 script = ExtResource("30_rds6v")
 
 [connection signal="body_entered" from="Contents/Gameplay/Boundaries/Top" to="." method="_on_top_body_entered"]
+[connection signal="pressed" from="Contents/UI/MarginContainer/NextContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="timeout" from="BatchSaveTimer" to="." method="_on_batch_save_timer_timeout"]

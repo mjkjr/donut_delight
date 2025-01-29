@@ -7,12 +7,10 @@ extends Node
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
 ## MENUS
-## TODO: Add a setting button to the game screen
 ## TODO: Improve buttons color scheme (in theme)
 ## TODO: Improve slider color scheme (in theme)
 
 ## SCORING
-## TODO: Display current High Score somewhere
 ## TODO: Add floating numbers upon scoring
 
 ## TUTORIAL
@@ -101,10 +99,7 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("back"):
 		get_viewport().set_input_as_handled()
-		pause_gameplay()
-		var pause_menu = PAUSE_MENU.instantiate()
-		%UI.add_child(pause_menu)
-		pause_menu.resume.connect(unpause_gameplay)
+		_show_pause_menu()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -273,3 +268,14 @@ func _on_batch_save_timer_timeout() -> void:
 
 func _shake_on_high_score() -> void:
 	$Camera2D.shake(Global.screen_shake_factor, 300, 3)
+
+
+func _show_pause_menu() -> void:
+	pause_gameplay()
+	var pause_menu = PAUSE_MENU.instantiate()
+	%UI.add_child(pause_menu)
+	pause_menu.resume.connect(unpause_gameplay)
+
+
+func _on_settings_button_pressed() -> void:
+	_show_pause_menu()
