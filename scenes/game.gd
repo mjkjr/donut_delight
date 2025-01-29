@@ -71,6 +71,9 @@ func _ready() -> void:
 	# set the initial alpha to fully transparent
 	$Contents.modulate.a = 0
 	$Contents/UI/MarginContainer.modulate.a = 0
+	
+	%HighScore.text = Global.format_large_integer(Global.high_score)
+	
 	# fade the scene alpha in
 	var tween = $Contents.create_tween()
 	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 1), 0.5)
