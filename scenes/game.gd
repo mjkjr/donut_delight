@@ -13,9 +13,6 @@ extends Node
 ## SCORING
 ## TODO: Add floating numbers upon scoring
 
-## TUTORIAL
-## TODO: Add "How to Play" instructions when starting a game
-
 ## MISC / POLISH
 ## TODO: Add a losing audio sound effect
 ## TODO: Add "puff" particle effect when objects merge
@@ -67,6 +64,9 @@ var objects: Dictionary = {}
 
 
 func _ready() -> void:
+	if not Global.tutorial_shown:
+		%Tutorial.visible = true
+	
 	# set the initial alpha to fully transparent
 	$Contents.modulate.a = 0
 	$Contents/UI/MarginContainer.modulate.a = 0
@@ -103,9 +103,17 @@ func _input(event: InputEvent) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if player_control_active and event.is_action_released("drop"):
-		move()
-		drop_item()
+	if event.is_action_released("drop"):
+		if player_control_active:
+			move()
+			drop_item()
+		if %Tutorial.visible == true:
+			if %Tutorial/Part1.visible == true:
+				%Tutorial/AnimationPlayer.play("part1")
+			elif %Tutorial/Part2.visible == true:
+				%Tutorial/AnimationPlayer.seek(%Tutorial/AnimationPlayer.current_animation_length)
+			elif %Tutorial/Part3.visible == true:
+				%Tutorial/AnimationPlayer.seek(%Tutorial/AnimationPlayer.current_animation_length)
 
 
 func move() -> void:
@@ -279,3 +287,13 @@ func _show_pause_menu() -> void:
 
 func _on_settings_button_pressed() -> void:
 	_show_pause_menu()
+
+
+func _on_tutorial_completed(part: int) -> void:
+	match part:
+		1:
+			%Tutorial/AnimationPlayer.play("part2")
+		2:
+			%Tutorial/AnimationPlayer.play("part3")
+		3:
+			Global.tutorial_shown = true

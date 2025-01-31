@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dbv0y58eyjko0"]
+[gd_scene load_steps=58 format=3 uid="uid://dbv0y58eyjko0"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_ah47j"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_6x0ur"]
@@ -31,8 +31,10 @@
 [ext_resource type="AudioStream" uid="uid://em7a52ixh102" path="res://assets/audio/effects/merge.wav" id="16_h16gy"]
 [ext_resource type="AudioStream" uid="uid://i7a2v4u8nb8d" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Open - 1.wav" id="17_544n2"]
 [ext_resource type="Texture2D" uid="uid://jrynmfwwfq3y" path="res://assets/settings_3.png" id="29_pt8dm"]
+[ext_resource type="Texture2D" uid="uid://bystc1w4meaoh" path="res://assets/finger_up.png" id="30_ip80k"]
 [ext_resource type="Script" path="res://scenes/camera_2d.gd" id="30_rds6v"]
 [ext_resource type="AudioStream" uid="uid://661buyg5mg4y" path="res://assets/audio/effects/SFX_HOLOGRAM_ON_SC-FI.wav" id="31_w0rlu"]
+[ext_resource type="Texture2D" uid="uid://d33hgp0fipdgc" path="res://assets/finger_down.png" id="31_y854e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kgbu6"]
 normal = Vector2(1, 0)
@@ -501,6 +503,327 @@ frame_9/duration = 0.1
 frame_10/texture = ExtResource("7_o7kyo")
 frame_10/duration = 0.1
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_04lon"]
+frames = 2
+speed_scale = 2.0
+frame_0/texture = ExtResource("30_ip80k")
+frame_1/texture = ExtResource("31_y854e")
+frame_1/duration = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jm18h"]
+content_margin_left = 36.0
+content_margin_top = 20.0
+content_margin_right = 36.0
+content_margin_bottom = 48.0
+bg_color = Color(0.552941, 0, 0.556863, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gudu6"]
+content_margin_left = 36.0
+content_margin_top = 20.0
+content_margin_right = 36.0
+content_margin_bottom = 48.0
+bg_color = Color(0.552941, 0, 0.556863, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaanu"]
+content_margin_left = 36.0
+content_margin_top = 20.0
+content_margin_right = 36.0
+content_margin_bottom = 48.0
+bg_color = Color(0.552941, 0, 0.556863, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="Animation" id="Animation_o6pqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Part1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Part2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Part3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Part1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Tutorial/../MarginContainer/SequenceContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Score:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Part2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Part3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_athp4"]
+resource_name = "part1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Part1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Part1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%UI/../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1],
+"method": &"_on_tutorial_completed"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xce7r"]
+resource_name = "part2"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Part2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Score:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%UI/../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [2],
+"method": &"_on_tutorial_completed"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Part2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_aeby0"]
+resource_name = "part3"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Part3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Tutorial/../MarginContainer/SequenceContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.875, 1.25, 1.625, 2, 2.375, 2.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%UI/../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [3],
+"method": &"_on_tutorial_completed"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Part3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w2xih"]
+_data = {
+"RESET": SubResource("Animation_o6pqa"),
+"part1": SubResource("Animation_athp4"),
+"part2": SubResource("Animation_xce7r"),
+"part3": SubResource("Animation_aeby0")
+}
+
 [node name="Game" type="Node"]
 script = ExtResource("1_ah47j")
 
@@ -861,26 +1184,26 @@ text = "SCORE"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="GridContainer" type="GridContainer" parent="Contents/UI/MarginContainer"]
+[node name="SequenceContainer" type="GridContainer" parent="Contents/UI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 columns = 6
 
-[node name="TextureRect" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 layout_mode = 2
 texture = ExtResource("2_mpbfl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect1" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect1" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 texture = ExtResource("2_78hli")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -889,7 +1212,7 @@ texture = ExtResource("3_mdcg7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect9" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect9" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -898,7 +1221,7 @@ texture = ExtResource("10_ys3vt")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect10" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect10" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -907,7 +1230,7 @@ texture = ExtResource("11_cqwnc")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect7" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect7" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -916,7 +1239,7 @@ texture = ExtResource("8_xoobg")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect8" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect8" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -925,7 +1248,7 @@ texture = ExtResource("9_je3ir")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect4" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect4" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -934,7 +1257,7 @@ texture = ExtResource("5_svgom")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect5" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect5" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -943,7 +1266,7 @@ texture = ExtResource("6_qhko1")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect6" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect6" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -952,7 +1275,7 @@ texture = ExtResource("7_yqnpx")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect3" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -961,7 +1284,7 @@ texture = ExtResource("4_17w03")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect11" type="TextureRect" parent="Contents/UI/MarginContainer/GridContainer"]
+[node name="TextureRect11" type="TextureRect" parent="Contents/UI/MarginContainer/SequenceContainer"]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -977,6 +1300,72 @@ modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(1080, 1920)
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Tutorial" type="CenterContainer" parent="Contents/UI"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 317.0
+offset_bottom = 36.0
+
+[node name="Part1" type="VBoxContainer" parent="Contents/UI/Tutorial"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="FingerUp" type="TextureRect" parent="Contents/UI/Tutorial/Part1"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AnimatedTexture_04lon")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Contents/UI/Tutorial/Part1"]
+layout_mode = 2
+theme = ExtResource("4_uwju3")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_jm18h")
+text = "Tap to drop a donut"
+horizontal_alignment = 1
+
+[node name="Part2" type="Label" parent="Contents/UI/Tutorial"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("4_uwju3")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_gudu6")
+text = "Score points when matching donuts merge"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Part3" type="MarginContainer" parent="Contents/UI/Tutorial"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 350
+
+[node name="Label" type="Label" parent="Contents/UI/Tutorial/Part3"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("4_uwju3")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_aaanu")
+text = "Merged donuts spawn the next in the sequence below"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Contents/UI/Tutorial"]
+libraries = {
+"": SubResource("AnimationLibrary_w2xih")
+}
 
 [node name="Audio" type="Node" parent="."]
 

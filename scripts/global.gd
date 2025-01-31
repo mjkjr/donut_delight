@@ -7,6 +7,9 @@ signal screen_shake_factor_changed(new_value: float)
 const MUSIC_TRACK = preload("res://assets/audio/music/Lofi hip hop Volume 1) - 06 - Soft Lights (Loop Version).mp3")
 var music: AudioStreamPlayer = null
 
+# Tutorial
+var tutorial_shown: bool = false
+
 # Scoring
 var score: int = 0
 var high_score: int = 0
