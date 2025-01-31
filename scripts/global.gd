@@ -8,7 +8,7 @@ const MUSIC_TRACK = preload("res://assets/audio/music/Lofi hip hop Volume 1) - 0
 var music: AudioStreamPlayer = null
 
 # Tutorial
-var tutorial_shown: bool = false
+var tutorial_watched: bool = false
 
 # Scoring
 var score: int = 0
@@ -45,7 +45,7 @@ func save_settings() -> void:
 	var file = FileAccess.open("user://settings", FileAccess.WRITE)
 	if file != null:
 		## format:
-		## master volume, music volue, effects volume, screen shake factor, high_score
+		## master volume, music volue, effects volume, screen shake factor, screen flash enabled, high_score, tutorial watched
 		var settings = PackedStringArray(
 			[
 				str(snapped(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))), 0.01)),
@@ -53,7 +53,8 @@ func save_settings() -> void:
 				str(snapped(db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Effects"))), 0.01)),
 				str(screen_shake_factor),
 				str(screen_flash_enabled),
-				str(high_score)
+				str(high_score),
+				str(tutorial_watched),
 			]
 		)
 		file.store_csv_line(settings)
@@ -63,7 +64,7 @@ func load_settings() -> void:
 	var file = FileAccess.open("user://settings", FileAccess.READ)
 	if file != null:
 		## format:
-		## master volume, music volue, effects volume, screen shake factor, screen flash enabled, high_score
+		## master volume, music volue, effects volume, screen shake factor, screen flash enabled, high_score, tutorial watched
 		var settings = file.get_csv_line()
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(float(settings[0])))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(float(settings[1])))
@@ -74,6 +75,10 @@ func load_settings() -> void:
 		else:
 			screen_flash_enabled = false
 		high_score = int(settings[5])
+		if settings[6] == "true":
+			tutorial_watched = true
+		else:
+			tutorial_watched = false
 	else:
 		# set default bus volumes
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.5))

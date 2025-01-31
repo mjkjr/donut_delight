@@ -64,7 +64,7 @@ var objects: Dictionary = {}
 
 
 func _ready() -> void:
-	if not Global.tutorial_shown:
+	if not Global.tutorial_watched:
 		%Tutorial.visible = true
 	
 	# set the initial alpha to fully transparent
@@ -111,9 +111,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			if %Tutorial/Part1.visible == true:
 				%Tutorial/AnimationPlayer.play("part1")
 			elif %Tutorial/Part2.visible == true:
-				%Tutorial/AnimationPlayer.seek(%Tutorial/AnimationPlayer.current_animation_length)
+				%Tutorial/AnimationPlayer.seek(%Tutorial/AnimationPlayer.current_animation_length-0.5)
 			elif %Tutorial/Part3.visible == true:
-				%Tutorial/AnimationPlayer.seek(%Tutorial/AnimationPlayer.current_animation_length)
+				%Tutorial/AnimationPlayer.seek(%Tutorial/AnimationPlayer.current_animation_length-0.5)
 
 
 func move() -> void:
@@ -267,6 +267,8 @@ func pause_gameplay() -> void:
 
 
 func unpause_gameplay() -> void:
+	if not Global.tutorial_watched:
+		%Tutorial.visible = true
 	get_tree().paused = false
 
 
@@ -296,4 +298,5 @@ func _on_tutorial_completed(part: int) -> void:
 		2:
 			%Tutorial/AnimationPlayer.play("part3")
 		3:
-			Global.tutorial_shown = true
+			%Tutorial/AnimationPlayer.play("RESET")
+			Global.tutorial_watched = true

@@ -25,6 +25,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_back_pressed() -> void:
 	$Audio/Dismiss.play()
+	if %ResetTutorial.button_pressed:
+		Global.tutorial_watched = false
 	Global.save_settings()
 	# fade out and self-destruct
 	var tween = get_tree().create_tween()

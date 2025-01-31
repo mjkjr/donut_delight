@@ -29,13 +29,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 301.5
-offset_top = 405.527
+offset_top = 357.527
 offset_right = 778.5
-offset_bottom = 504.527
+offset_bottom = 456.527
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.139154
 theme = ExtResource("3_qohli")
+theme_override_constants/outline_size = 24
 theme_override_font_sizes/font_size = 96
 text = "Settings"
 horizontal_alignment = 1
@@ -45,12 +46,13 @@ custom_minimum_size = Vector2(1080, 1920)
 offset_right = 1080.0
 offset_bottom = 1920.0
 theme_override_constants/margin_top = 125
-theme_override_constants/margin_bottom = 300
+theme_override_constants/margin_bottom = 150
 
 [node name="Title" type="Label" parent="Contents/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_qohli")
+theme_override_constants/outline_size = 36
 theme_override_font_sizes/font_size = 120
 text = "Donut Delight"
 horizontal_alignment = 1
@@ -66,9 +68,12 @@ theme_override_constants/separation = 72
 layout_mode = 2
 theme_override_constants/separation = 36
 
-[node name="AudioSettingsLabel" type="Label" parent="Contents/MarginContainer/VBoxContainer/AudioSettings"]
+[node name="Label" type="Label" parent="Contents/MarginContainer/VBoxContainer/AudioSettings"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(100, 100, 100, 1)
+theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 60
 text = "AUDIO"
 horizontal_alignment = 1
@@ -80,8 +85,10 @@ theme_override_constants/separation = 16
 [node name="MasterLabel" type="Label" parent="Contents/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 48
 text = "Master Volume"
+horizontal_alignment = 1
 
 [node name="VolumeMaster" type="HSlider" parent="Contents/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer1"]
 unique_name_in_owner = true
@@ -96,8 +103,10 @@ theme_override_constants/separation = 16
 [node name="MusicLabel" type="Label" parent="Contents/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 48
 text = "Music Volume"
+horizontal_alignment = 1
 
 [node name="VolumeMusic" type="HSlider" parent="Contents/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer2"]
 unique_name_in_owner = true
@@ -112,8 +121,10 @@ theme_override_constants/separation = 16
 [node name="EffectsLabel" type="Label" parent="Contents/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 48
 text = "SFX Volume"
+horizontal_alignment = 1
 
 [node name="VolumeEffects" type="HSlider" parent="Contents/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer3"]
 unique_name_in_owner = true
@@ -125,9 +136,12 @@ rounded = true
 layout_mode = 2
 theme_override_constants/separation = 36
 
-[node name="EffectsSettingsLabel" type="Label" parent="Contents/MarginContainer/VBoxContainer/EffectsSettings"]
+[node name="Label" type="Label" parent="Contents/MarginContainer/VBoxContainer/EffectsSettings"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(100, 100, 100, 1)
+theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 60
 text = "EFFECTS"
 horizontal_alignment = 1
@@ -139,8 +153,10 @@ theme_override_constants/separation = 16
 [node name="ScreenShakeLabel" type="Label" parent="Contents/MarginContainer/VBoxContainer/EffectsSettings/VBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 48
 text = "Screen Shake"
+horizontal_alignment = 1
 
 [node name="ScreenShake" type="HSlider" parent="Contents/MarginContainer/VBoxContainer/EffectsSettings/VBoxContainer1"]
 unique_name_in_owner = true
@@ -156,8 +172,10 @@ theme_override_constants/separation = 16
 [node name="ScreenFlashLabel" type="Label" parent="Contents/MarginContainer/VBoxContainer/EffectsSettings/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 48
 text = "Screen Flash"
+horizontal_alignment = 1
 
 [node name="ScreenFlashButton" type="Button" parent="Contents/MarginContainer/VBoxContainer/EffectsSettings/VBoxContainer2"]
 unique_name_in_owner = true
@@ -165,6 +183,26 @@ layout_mode = 2
 theme = ExtResource("3_qohli")
 toggle_mode = true
 text = "Enabled"
+
+[node name="TutorialSettings" type="VBoxContainer" parent="Contents/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Contents/MarginContainer/VBoxContainer/TutorialSettings"]
+layout_mode = 2
+theme = ExtResource("3_qohli")
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 48
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="ResetTutorial" type="Button" parent="Contents/MarginContainer/VBoxContainer/TutorialSettings"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_qohli")
+theme_override_constants/h_separation = 12
+toggle_mode = true
+text = "Reset"
 
 [node name="Back" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
 layout_mode = 2
