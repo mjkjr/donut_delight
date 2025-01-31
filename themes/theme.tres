@@ -89,4 +89,6 @@ HSlider/icons/grabber_highlight = SubResource("ImageTexture_x5g4i")
 HSlider/styles/slider = SubResource("StyleBoxFlat_70ax7")
 Label/font_sizes/font_size = 36
 Label/fonts/font = ExtResource("1_hd677")
+LinkButton/font_sizes/font_size = 48
+LinkButton/fonts/font = ExtResource("1_hd677")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_pwsrr")

@@ -56,30 +56,34 @@ theme_override_font_sizes/font_size = 120
 text = "Donut Delight"
 horizontal_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Contents/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer"]
 custom_minimum_size = Vector2(432, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 72
 
-[node name="Play" type="Button" parent="Contents/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_3cjaw")
 theme_override_font_sizes/font_size = 96
 text = "Play"
 
-[node name="Settings" type="Button" parent="Contents/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_3cjaw")
 text = "Settings"
 
-[node name="Credits" type="Button" parent="Contents/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_3cjaw")
 text = "Credits"
+
+[node name="WhyNoAds" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_3cjaw")
+text = "Why No Ads?"
 
 [node name="Audio" type="Node" parent="."]
 
@@ -87,6 +91,7 @@ text = "Credits"
 stream = ExtResource("3_eax65")
 bus = &"Effects"
 
-[connection signal="pressed" from="Contents/MarginContainer/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Contents/MarginContainer/CenterContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Contents/MarginContainer/CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/WhyNoAds" to="." method="_on_why_no_ads_pressed"]

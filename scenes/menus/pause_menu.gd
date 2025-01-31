@@ -4,6 +4,7 @@ signal resume
 
 const SETTINGS_MENU = preload("res://scenes/menus/settings_menu.tscn")
 const CREDITS = preload("res://scenes/menus/credits.tscn")
+const WHY_NO_ADS = preload("res://scenes/menus/why_no_ads.tscn")
 const LEAVE_GAME_MENU = preload("res://scenes/menus/leave_game_menu.tscn")
 
 
@@ -50,3 +51,8 @@ func _on_credits_pressed() -> void:
 func _on_leave_pressed() -> void:
 	$Audio/Button.play()
 	add_child(LEAVE_GAME_MENU.instantiate())
+
+
+func _on_why_no_ads_pressed() -> void:
+	$Audio/Button.play()
+	add_child(WHY_NO_ADS.instantiate())

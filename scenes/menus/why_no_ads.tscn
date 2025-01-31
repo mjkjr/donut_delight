@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh337h214k3gx"]
+
+[ext_resource type="Script" path="res://scenes/menus/why_no_ads.gd" id="1_5kvg4"]
+[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_mamwe"]
+[ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_v4u13"]
+[ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="6_hqt1t"]
+
+[node name="WhyNoAds" type="Node2D"]
+script = ExtResource("1_5kvg4")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1080.0
+offset_bottom = 1920.0
+color = Color(0.552941, 0, 0.556863, 1)
+
+[node name="Contents" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Contents"]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 1130.0
+offset_bottom = 1970.0
+texture = ExtResource("2_mamwe")
+
+[node name="WhyNoAds" type="Label" parent="Contents"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 265.0
+offset_top = 421.527
+offset_right = 815.0
+offset_bottom = 520.527
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.139154
+theme = ExtResource("3_v4u13")
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 96
+text = "Why No Ads?"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Contents"]
+custom_minimum_size = Vector2(1080, 1920)
+offset_right = 1080.0
+offset_bottom = 1920.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 125
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = -96
+
+[node name="Title" type="Label" parent="Contents/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("3_v4u13")
+theme_override_constants/outline_size = 36
+theme_override_font_sizes/font_size = 120
+text = "Donut Delight"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Contents/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 72
+
+[node name="WhyNoAdsText1" type="Label" parent="Contents/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = ExtResource("3_v4u13")
+theme_override_font_sizes/font_size = 48
+text = "It's simple:
+
+I don't put ads in my games because I don't like playing games with ads.
+
+If you enjoy this game and wish to support my work, simply go to:"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="LinkButton" type="LinkButton" parent="Contents/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_v4u13")
+text = "https://mjkjr.itch.io/donut-delight"
+uri = "https://mjkjr.itch.io/donut-delight"
+
+[node name="WhyNoAdsText2" type="Label" parent="Contents/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme = ExtResource("3_v4u13")
+theme_override_font_sizes/font_size = 48
+text = "and click on the \"Support This Game\" button to donate any amount you wish.
+
+Thank you!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Dismiss" type="Button" parent="Contents/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(432, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_v4u13")
+text = "Dismiss"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Dismiss" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("6_hqt1t")
+bus = &"Effects"
+
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer2/Dismiss" to="." method="_on_dismiss_pressed"]

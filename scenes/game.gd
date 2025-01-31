@@ -6,12 +6,12 @@ extends Node
 ## BUGS
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 
+## SCORING
+## TODO: Add floating numbers upon scoring
+
 ## MENUS
 ## TODO: Improve buttons color scheme (in theme)
 ## TODO: Improve slider color scheme (in theme)
-
-## SCORING
-## TODO: Add floating numbers upon scoring
 
 ## MISC / POLISH
 ## TODO: Add a losing audio sound effect
@@ -19,7 +19,6 @@ extends Node
 ## TODO: Spawn trail behind snail on credits screen
 
 ## PRE-RELEASE
-## ATTENTION: Add "Why No Ads?" screen to menu
 ## ATTENTION: Add art to title screen
 ## ATTENTION: Update icon
 ## TODO: Take screen shots
@@ -225,14 +224,8 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 			%Score.text = Global.format_large_integer(Global.score)
 			
 			if Global.score > Global.high_score:
-				Global.high_score = Global.score
-				%Score.text = Global.format_large_integer(Global.high_score)
 				
-				# Batch save settings to avoid constantly writing to file
-				if %BatchSaveTimer.is_stopped():
-					%BatchSaveTimer.start()
-				
-				# Only play high score effect once
+				# Only do high score effect once
 				if not high_score_set:
 					high_score_set = true
 					
@@ -242,6 +235,13 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 						%HighScoreEffect/AnimationPlayer.play("high_score_effect")
 					else:
 						%HighScoreEffect/AnimationPlayer.play("high_score_effect_no_flash")
+				
+				Global.high_score = Global.score
+				%Score.text = Global.format_large_integer(Global.high_score)
+				
+				# Batch save settings to avoid constantly writing to file
+				if %BatchSaveTimer.is_stopped():
+					%BatchSaveTimer.start()
 
 
 # detect game over condition
@@ -300,3 +300,4 @@ func _on_tutorial_completed(part: int) -> void:
 		3:
 			%Tutorial/AnimationPlayer.play("RESET")
 			Global.tutorial_watched = true
+			Global.save_settings()

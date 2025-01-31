@@ -5,6 +5,7 @@ extends Node2D
 
 const SETTINGS_MENU = preload("res://scenes/menus/settings_menu.tscn")
 const CREDITS = preload("res://scenes/menus/credits.tscn")
+const WHY_NO_ADS = preload("res://scenes/menus/why_no_ads.tscn")
 
 
 func _ready() -> void:
@@ -32,3 +33,8 @@ func _on_play_pressed() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($Contents, "modulate", Color(1, 1, 1, 0), 0.5)
 	tween.tween_callback(func(): Global.goto_scene("res://scenes/game.tscn"))
+
+
+func _on_why_no_ads_pressed() -> void:
+	$Audio/Button.play()
+	add_child(WHY_NO_ADS.instantiate())
