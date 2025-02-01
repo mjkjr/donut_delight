@@ -20,6 +20,7 @@ extends Node
 ## ATTENTION: Update icon
 ## TODO: Take screen shots
 ## TODO: Organize license files
+## TODO: Export and test android version
 
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")

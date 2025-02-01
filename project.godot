@@ -15,6 +15,7 @@ config/version="1.0.0"
 run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=500
 
 [audio]
 
@@ -29,9 +30,7 @@ Global="*res://scripts/global.gd"
 window/size/viewport_width=1080
 window/size/viewport_height=1920
 window/size/mode=3
-window/size/borderless=true
-window/size/window_width_override=540
-window/size/window_height_override=960
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

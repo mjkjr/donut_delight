@@ -25,8 +25,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_back_pressed() -> void:
 	$Audio/Dismiss.play()
-	if %ResetTutorial.button_pressed:
-		Global.tutorial_watched = false
 	Global.save_settings()
 	# fade out and self-destruct
 	var tween = get_tree().create_tween()
@@ -63,3 +61,7 @@ func _on_screen_flash_button_toggled(toggled_on: bool) -> void:
 	else:
 		%ScreenFlashButton.text = "Enabled"
 		Global.screen_flash_enabled = true
+
+
+func _on_reset_tutorial_pressed() -> void:
+	Global.tutorial_watched = false

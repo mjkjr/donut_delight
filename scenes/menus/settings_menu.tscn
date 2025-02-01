@@ -29,9 +29,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 301.5
-offset_top = 357.527
+offset_top = 303.527
 offset_right = 778.5
-offset_bottom = 456.527
+offset_bottom = 402.527
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.139154
@@ -45,8 +45,8 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(1080, 1920)
 offset_right = 1080.0
 offset_bottom = 1920.0
-theme_override_constants/margin_top = 125
-theme_override_constants/margin_bottom = 150
+theme_override_constants/margin_top = 84
+theme_override_constants/margin_bottom = 84
 
 [node name="Title" type="Label" parent="Contents/MarginContainer"]
 layout_mode = 2
@@ -186,14 +186,16 @@ text = "Enabled"
 
 [node name="TutorialSettings" type="VBoxContainer" parent="Contents/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 36
 
 [node name="Label" type="Label" parent="Contents/MarginContainer/VBoxContainer/TutorialSettings"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
-theme_override_constants/outline_size = 12
-theme_override_font_sizes/font_size = 48
-text = "Tutorial"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(100, 100, 100, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 60
+text = "TUTORIAL"
 horizontal_alignment = 1
 
 [node name="ResetTutorial" type="Button" parent="Contents/MarginContainer/VBoxContainer/TutorialSettings"]
@@ -201,8 +203,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_qohli")
 theme_override_constants/h_separation = 12
-toggle_mode = true
-text = "Reset"
+text = "Reset Tutorial"
 
 [node name="Back" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -220,4 +221,5 @@ bus = &"Effects"
 [connection signal="drag_ended" from="Contents/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer3/VolumeEffects" to="." method="_on_effects_volume_drag_ended"]
 [connection signal="drag_ended" from="Contents/MarginContainer/VBoxContainer/EffectsSettings/VBoxContainer1/ScreenShake" to="." method="_on_screen_shake_drag_ended"]
 [connection signal="toggled" from="Contents/MarginContainer/VBoxContainer/EffectsSettings/VBoxContainer2/ScreenFlashButton" to="." method="_on_screen_flash_button_toggled"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/TutorialSettings/ResetTutorial" to="." method="_on_reset_tutorial_pressed"]
 [connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
