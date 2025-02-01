@@ -55,8 +55,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("3_v4u13")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 8
 theme_override_constants/outline_size = 36
-theme_override_font_sizes/font_size = 120
+theme_override_constants/shadow_outline_size = 54
+theme_override_font_sizes/font_size = 144
 text = "Donut Delight"
 horizontal_alignment = 1
 

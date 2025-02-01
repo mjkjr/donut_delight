@@ -52,26 +52,26 @@ offset_bottom = 1920.0
 theme_override_constants/margin_top = 96
 theme_override_constants/margin_bottom = 160
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer"]
+[node name="Title" type="Label" parent="Contents/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 72
-
-[node name="Title" type="Label" parent="Contents/MarginContainer/VBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("3_2y6nc")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 8
 theme_override_constants/outline_size = 36
-theme_override_font_sizes/font_size = 120
+theme_override_constants/shadow_outline_size = 54
+theme_override_font_sizes/font_size = 144
 text = "Donut Delight"
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Contents/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 72
 
-[node name="CreditsText" type="Label" parent="Contents/MarginContainer/VBoxContainer2"]
+[node name="CreditsText" type="Label" parent="Contents/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_2y6nc")
@@ -105,7 +105,7 @@ Special Thanks
 Dragos Daian for SoftBody2D"
 horizontal_alignment = 1
 
-[node name="Dismiss" type="Button" parent="Contents/MarginContainer/VBoxContainer2"]
+[node name="Dismiss" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(432, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -137,5 +137,5 @@ position = Vector2(-22, 1923)
 stream = ExtResource("5_o37ff")
 bus = &"Effects"
 
-[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer2/Dismiss" to="." method="_on_dismiss_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Dismiss" to="." method="_on_dismiss_pressed"]
 [connection signal="off_screen" from="Contents/Greg" to="." method="_on_greg_off_screen"]

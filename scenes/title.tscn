@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dousx8eugnst"]
+[gd_scene load_steps=5 format=3 uid="uid://dousx8eugnst"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_xpfyw"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_4lgvg"]
 [ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="2_srhbr"]
+[ext_resource type="Texture2D" uid="uid://bjsqodtpabide" path="res://assets/objects/donut11.png" id="4_olcgn"]
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_xpfyw")
@@ -24,6 +25,11 @@ offset_right = 1080.0
 offset_bottom = 1920.0
 texture = ExtResource("2_4lgvg")
 
+[node name="Donut11" type="Sprite2D" parent="Contents"]
+position = Vector2(556, 702)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_olcgn")
+
 [node name="MarginContainer" type="MarginContainer" parent="Contents"]
 custom_minimum_size = Vector2(1080, 1920)
 offset_right = 40.0
@@ -35,9 +41,15 @@ theme_override_constants/margin_bottom = 100
 
 [node name="Title" type="Label" parent="Contents/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("2_srhbr")
-theme_override_font_sizes/font_size = 96
-text = "DONUT DELIGHT"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 36
+theme_override_constants/shadow_outline_size = 54
+theme_override_font_sizes/font_size = 144
+text = "Donut Delight"
 horizontal_alignment = 1
 
 [node name="Studio" type="Label" parent="Contents/MarginContainer"]

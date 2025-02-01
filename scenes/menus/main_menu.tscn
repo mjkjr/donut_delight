@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwpwtcxsy6eoi"]
+[gd_scene load_steps=6 format=3 uid="uid://bwpwtcxsy6eoi"]
 
 [ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_37dxe"]
 [ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_sdj1v"]
 [ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_3cjaw"]
 [ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="3_eax65"]
+[ext_resource type="Texture2D" uid="uid://bjsqodtpabide" path="res://assets/objects/donut11.png" id="4_4rqgd"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_37dxe")
@@ -29,9 +30,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 234.0
-offset_top = 469.527
+offset_top = 1711.0
 offset_right = 846.0
-offset_bottom = 568.527
+offset_bottom = 1810.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.139154
@@ -45,42 +46,63 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(1080, 1920)
 offset_right = 1080.0
 offset_bottom = 1920.0
-theme_override_constants/margin_top = 125
+theme_override_constants/margin_top = 48
 
-[node name="Title" type="Label" parent="Contents/MarginContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Contents/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 144
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Contents/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = -108
+
+[node name="Donut" type="TextureRect" parent="Contents/MarginContainer/VBoxContainer3/VBoxContainer2"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("4_4rqgd")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Contents/MarginContainer/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = ExtResource("3_3cjaw")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 8
 theme_override_constants/outline_size = 36
-theme_override_font_sizes/font_size = 120
+theme_override_constants/shadow_outline_size = 54
+theme_override_font_sizes/font_size = 144
 text = "Donut Delight"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/MarginContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(432, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/separation = 72
 
-[node name="Play" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="Contents/MarginContainer/VBoxContainer3/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_3cjaw")
 theme_override_font_sizes/font_size = 96
 text = "Play"
 
-[node name="Settings" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="Contents/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_3cjaw")
 text = "Settings"
 
-[node name="Credits" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
+[node name="Credits" type="Button" parent="Contents/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_3cjaw")
 text = "Credits"
 
-[node name="WhyNoAds" type="Button" parent="Contents/MarginContainer/VBoxContainer"]
+[node name="WhyNoAds" type="Button" parent="Contents/MarginContainer/VBoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_3cjaw")
 text = "Why No Ads?"
@@ -91,7 +113,7 @@ text = "Why No Ads?"
 stream = ExtResource("3_eax65")
 bus = &"Effects"
 
-[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/WhyNoAds" to="." method="_on_why_no_ads_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer3/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer3/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer3/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Contents/MarginContainer/VBoxContainer3/VBoxContainer/WhyNoAds" to="." method="_on_why_no_ads_pressed"]
