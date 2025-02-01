@@ -50,7 +50,7 @@ theme_override_constants/margin_top = 48
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Contents/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 144
+theme_override_constants/separation = 156
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Contents/MarginContainer/VBoxContainer3"]
 layout_mode = 2

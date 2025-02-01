@@ -8,16 +8,15 @@ extends Node
 ## try switching to an AnimationPlayer for initial scale on spawn
 
 ## MISC / POLISH
-## TODO: Add game-over visual effect (similar to "High Score" effect)
+## ATTENTION: Add game-over visual effect (similar to "High Score" effect)
 ## TODO: Add game-over sound effect
 ## TODO: Spawn trail behind snail on credits screen
 
 ## PRE-RELEASE
-## ATTENTION: Add art to title screen
-## ATTENTION: Update icon
+## ATTENTION: Add icons for andriod version
+## ATTENTION: Export and test android version
 ## TODO: Take screen shots
 ## TODO: Organize license files
-## TODO: Export and test android version
 
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")

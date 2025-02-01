@@ -76,7 +76,7 @@ theme_override_constants/separation = 36
 [node name="Label" type="Label" parent="Contents/MarginContainer/VBoxContainer/AudioSettings"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.503049, 0.13002, 0.336564, 1)
 theme_override_colors/font_outline_color = Color(100, 100, 100, 1)
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 60
@@ -144,7 +144,7 @@ theme_override_constants/separation = 36
 [node name="Label" type="Label" parent="Contents/MarginContainer/VBoxContainer/EffectsSettings"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.501961, 0.129412, 0.337255, 1)
 theme_override_colors/font_outline_color = Color(100, 100, 100, 1)
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 60
@@ -196,7 +196,7 @@ theme_override_constants/separation = 36
 [node name="Label" type="Label" parent="Contents/MarginContainer/VBoxContainer/TutorialSettings"]
 layout_mode = 2
 theme = ExtResource("3_qohli")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.501961, 0.129412, 0.337255, 1)
 theme_override_colors/font_outline_color = Color(100, 100, 100, 1)
 theme_override_constants/outline_size = 16
 theme_override_font_sizes/font_size = 60
