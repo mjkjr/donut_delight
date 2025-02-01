@@ -8,8 +8,6 @@ extends Node
 ## try switching to an AnimationPlayer for initial scale on spawn
 
 ## MISC / POLISH
-## ATTENTION: Add game-over visual effect (similar to "High Score" effect)
-## TODO: Add game-over sound effect
 ## TODO: Spawn trail behind snail on credits screen
 
 ## PRE-RELEASE

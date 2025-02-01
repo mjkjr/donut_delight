@@ -1,8 +1,128 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq2qqf4q31r2w"]
+[gd_scene load_steps=10 format=3 uid="uid://dq2qqf4q31r2w"]
 
 [ext_resource type="Script" path="res://scenes/menus/game_over_menu.gd" id="1_jb5j3"]
+[ext_resource type="FontFile" uid="uid://bu1alfevqdkvo" path="res://assets/fonts/londrina/LondrinaSolid-Regular.otf" id="3_kyx0o"]
 [ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_w5opt"]
+[ext_resource type="AudioStream" uid="uid://kuy6801ggcrr" path="res://assets/audio/effects/game_over.wav" id="5_lx26k"]
 [ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="5_yakjb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2w6nh"]
+font = ExtResource("3_kyx0o")
+font_size = 200
+font_color = Color(0.627, 0.114, 0.2, 1)
+outline_size = 20
+shadow_size = 50
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-15, 20)
+
+[sub_resource type="Animation" id="Animation_rfh6g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Game:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Over:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Over:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ehoaw"]
+resource_name = "game_over"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Game:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Game:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Over:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Over:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b57vy"]
+_data = {
+"RESET": SubResource("Animation_rfh6g"),
+"game_over": SubResource("Animation_ehoaw")
+}
 
 [node name="GameOverMenu" type="Node2D"]
 script = ExtResource("1_jb5j3")
@@ -28,34 +148,22 @@ custom_minimum_size = Vector2(1080, 1920)
 offset_right = 1080.0
 offset_bottom = 1920.0
 
-[node name="PanelContainer" type="PanelContainer" parent="Contents/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents/CenterContainer"]
 layout_mode = 2
-theme = ExtResource("3_w5opt")
+theme_override_constants/separation = 60
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents/CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="Label" type="Label" parent="Contents/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_w5opt")
-theme_override_constants/outline_size = 36
-theme_override_font_sizes/font_size = 150
-text = "GAME OVER!"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Contents/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Contents/CenterContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="Contents/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="Contents/CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_w5opt")
 theme_override_constants/outline_size = 18
 theme_override_font_sizes/font_size = 72
 text = "SCORE: "
 
-[node name="FinalScore" type="Label" parent="Contents/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="FinalScore" type="Label" parent="Contents/CenterContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_w5opt")
@@ -63,16 +171,51 @@ theme_override_constants/outline_size = 18
 theme_override_font_sizes/font_size = 72
 text = "0"
 
-[node name="ColorRect" type="ColorRect" parent="Contents/CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="Dismiss" type="Button" parent="Contents/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Contents/CenterContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("3_w5opt")
+theme_override_font_sizes/font_size = 0
 text = "Main Menu"
+
+[node name="Game" type="Label" parent="Contents"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 355.0
+offset_top = 352.0
+offset_right = 740.0
+offset_bottom = 582.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(192, 230)
+text = "GAME"
+label_settings = SubResource("LabelSettings_2w6nh")
+
+[node name="Over" type="Label" parent="Contents"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 326.0
+offset_top = 564.0
+offset_right = 766.0
+offset_bottom = 794.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(220, 230)
+text = "OVER!"
+label_settings = SubResource("LabelSettings_2w6nh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Contents")
+libraries = {
+"": SubResource("AnimationLibrary_b57vy")
+}
 
 [node name="Audio" type="Node" parent="."]
 
@@ -80,4 +223,8 @@ text = "Main Menu"
 stream = ExtResource("5_yakjb")
 bus = &"Effects"
 
-[connection signal="pressed" from="Contents/CenterContainer/PanelContainer/VBoxContainer/Dismiss" to="." method="_on_dismiss_pressed"]
+[node name="GameOver" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_lx26k")
+autoplay = true
+
+[connection signal="pressed" from="Contents/CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

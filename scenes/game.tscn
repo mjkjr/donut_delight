@@ -848,147 +848,147 @@ unique_name_in_owner = true
 
 [node name="ColorRect" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 128.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 168.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 168.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 208.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 207.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 247.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 247.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 287.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 287.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 327.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 327.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 367.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 366.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 406.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 406.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 446.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect9" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 446.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 486.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect10" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 486.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 526.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect11" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 525.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 565.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect12" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 565.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 605.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect13" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 605.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 645.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect14" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 645.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 685.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect15" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 684.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 724.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect16" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 724.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 764.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect17" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 764.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 804.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect18" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 804.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 844.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect19" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 844.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 884.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
 
 [node name="ColorRect20" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 884.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 924.0
 offset_bottom = 1600.0
 color = Color(0.882353, 0.8, 0.670588, 1)
 
 [node name="ColorRect21" type="ColorRect" parent="Contents/Gameplay/Box"]
 offset_left = 923.0
-offset_top = 580.0
+offset_top = 480.0
 offset_right = 948.0
 offset_bottom = 1600.0
 color = Color(0.909662, 0.842973, 0.738645, 1)
@@ -1000,8 +1000,8 @@ unique_name_in_owner = true
 position = Vector2(128, 960)
 
 [node name="Line2D" type="Line2D" parent="Contents/Gameplay/Boundaries/Left"]
-points = PackedVector2Array(0, -400, 0, 640)
-default_color = Color(0.882353, 0.8, 0.670588, 1)
+points = PackedVector2Array(0, -490, 0, 640)
+default_color = Color(0.871457, 0.743423, 0.589471, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Left"]
 shape = SubResource("WorldBoundaryShape2D_kgbu6")
@@ -1010,8 +1010,8 @@ shape = SubResource("WorldBoundaryShape2D_kgbu6")
 position = Vector2(540, 1600)
 
 [node name="Line2D" type="Line2D" parent="Contents/Gameplay/Boundaries/Bottom"]
-points = PackedVector2Array(-412, 0, 412, 0)
-default_color = Color(0.882353, 0.8, 0.670588, 1)
+points = PackedVector2Array(-417, 0, 417, 0)
+default_color = Color(0.871457, 0.743423, 0.589471, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Bottom"]
 shape = SubResource("WorldBoundaryShape2D_0agsg")
@@ -1020,14 +1020,14 @@ shape = SubResource("WorldBoundaryShape2D_0agsg")
 position = Vector2(952, 960)
 
 [node name="Line2D" type="Line2D" parent="Contents/Gameplay/Boundaries/Right"]
-points = PackedVector2Array(0, -400, 0, 640)
-default_color = Color(0.882353, 0.8, 0.670588, 1)
+points = PackedVector2Array(0, -490, 0, 640)
+default_color = Color(0.871457, 0.743423, 0.589471, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Right"]
 shape = SubResource("WorldBoundaryShape2D_ip8lq")
 
 [node name="Top" type="Area2D" parent="Contents/Gameplay/Boundaries"]
-position = Vector2(540, 499)
+position = Vector2(540, 451)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Gameplay/Boundaries/Top"]
 shape = SubResource("SegmentShape2D_eccye")
