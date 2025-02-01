@@ -7,12 +7,9 @@ extends Node
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 ## try switching to an AnimationPlayer for initial scale on spawn
 
-## MENUS
-## TODO: Improve buttons color scheme (in theme)
-## TODO: Improve slider color scheme (in theme)
-
 ## MISC / POLISH
-## TODO: Add a losing audio sound effect
+## TODO: Add game-over visual effect (similar to "High Score" effect)
+## TODO: Add game-over sound effect
 ## TODO: Spawn trail behind snail on credits screen
 
 ## PRE-RELEASE
