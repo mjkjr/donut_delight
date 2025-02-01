@@ -7,9 +7,6 @@ extends Node
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 ## try switching to an AnimationPlayer for initial scale on spawn
 
-## MISC / POLISH
-## TODO: Spawn trail behind snail on credits screen
-
 ## PRE-RELEASE
 ## ATTENTION: Add icons for andriod version
 ## ATTENTION: Export and test android version

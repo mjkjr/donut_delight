@@ -17,6 +17,8 @@ func _ready() -> void:
 	greg_spawn_position = $Contents/Greg.position
 	if get_tree().paused:
 		$Contents/Greg.position.x = 1000
+	else:
+		$Contents/Greg/SlimeTimer.start()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -40,3 +42,4 @@ func _on_greg_off_screen() -> void:
 	greg.off_screen.connect(_on_greg_off_screen)
 	greg.position = greg_spawn_position
 	$Contents.add_child(greg)
+	greg.get_node("SlimeTimer").start()
