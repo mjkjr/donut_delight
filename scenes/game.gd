@@ -5,9 +5,7 @@ extends Node
 
 ## BUGS
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
-
-## SCORING
-## TODO: Add floating numbers upon scoring
+## try switching to an AnimationPlayer for initial scale on spawn
 
 ## MENUS
 ## TODO: Improve buttons color scheme (in theme)
@@ -15,7 +13,6 @@ extends Node
 
 ## MISC / POLISH
 ## TODO: Add a losing audio sound effect
-## TODO: Add "puff" particle effect when objects merge
 ## TODO: Spawn trail behind snail on credits screen
 
 ## PRE-RELEASE
@@ -27,6 +24,7 @@ extends Node
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
 const GAME_OVER_MENU = preload("res://scenes/menus/game_over_menu.tscn")
+const POINTS = preload("res://scenes/points.tscn")
 
 const OBJECTS = [
 	preload("res://scenes/donuts/donut01.tscn"),
@@ -220,8 +218,15 @@ func resolve_collision(object1: Node, object2: Node) -> void:
 			$Camera2D.shake(Global.screen_shake_factor)
 			
 			# Increment the score
-			Global.score += 100 * (1 + object_index)
+			var scored: int = 100 * (1 + object_index)
+			Global.score += scored
 			%Score.text = Global.format_large_integer(Global.score)
+			
+			# spawn a points object
+			var points = POINTS.instantiate()
+			points.position = new_object_position
+			points.set_score(scored)
+			add_child(points)
 			
 			if Global.score > Global.high_score:
 				
