@@ -158,9 +158,10 @@ func spawn_object(index: int, position: Vector2) -> void:
 	objects[new_object.get_path()] = index
 	new_object.position = position
 	bind_softbody_collision(new_object)
-	var tween = new_object.create_tween()
-	tween.tween_property(new_object, "scale", Vector2(0.05, 0.05), 0)
-	tween.tween_property(new_object, "scale", Vector2(1, 1), 0.2)
+	new_object.get_node("AnimationPlayer").play("spawn")
+	#var tween = new_object.create_tween()
+	#tween.tween_property(new_object, "scale", Vector2(0.05, 0.05), 0)
+	#tween.tween_property(new_object, "scale", Vector2(1, 1), 0.2)
 
 
 func bind_softbody_collision(object: Node2D) -> void:
