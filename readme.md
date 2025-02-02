@@ -3,10 +3,10 @@ A Donut Merging Game.
 
 ## 🖼️ Screenshots
 
-![Screenshot 1](screenshots/screenshot-1.png)
-![Screenshot 2](screenshots/screenshot-2.png)
-![Screenshot 3](screenshots/screenshot-3.png)
-![Screenshot 4](screenshots/screenshot-4.png)
+![Screenshot 1](assets/promo/screenshots/small/screenshot-1.png)
+![Screenshot 2](assets/promo/screenshots/small/screenshot-2.png)
+![Screenshot 3](assets/promo/screenshots/small/screenshot-3.png)
+![Screenshot 4](assets/promo/screenshots/small/screenshot-4.png)
 
 ## 🕹️ Play
 
