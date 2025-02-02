@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdmngegf8opr1"
-path="res://.godot/imported/donut08.png-4e9ed41e4ce58c845ab09a85f38b4a8e.ctex"
+uid="uid://g13wmm8gufar"
+path="res://.godot/imported/donut03.png-2eb07d81dbc84bc6badff4ad9af3d579.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/donut08.png"
-dest_files=["res://.godot/imported/donut08.png-4e9ed41e4ce58c845ab09a85f38b4a8e.ctex"]
+source_file="res://assets/gds/donuts/donut03.png"
+dest_files=["res://.godot/imported/donut03.png-2eb07d81dbc84bc6badff4ad9af3d579.ctex"]
 
 [params]
 

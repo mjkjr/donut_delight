@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://ci23incsprkk3"]
 
-[ext_resource type="Texture2D" uid="uid://cvp8lqpf7gl70" path="res://assets/greg.png" id="1_6f8vh"]
+[ext_resource type="Texture2D" uid="uid://cvp8lqpf7gl70" path="res://assets/greg/greg.png" id="1_6f8vh"]
 [ext_resource type="Script" path="res://addons/softbody2d/softbody2d.gd" id="2_tfllw"]
 [ext_resource type="Script" path="res://scenes/greg/character_body_2d.gd" id="2_vliiu"]
 [ext_resource type="Script" path="res://scenes/greg/greg.gd" id="3_64iop"]

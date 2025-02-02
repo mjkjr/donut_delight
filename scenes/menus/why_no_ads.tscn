@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh337h214k3gx"]
 
 [ext_resource type="Script" path="res://scenes/menus/why_no_ads.gd" id="1_5kvg4"]
-[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_mamwe"]
+[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/gds/bg/bg.png" id="2_mamwe"]
 [ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_v4u13"]
-[ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="6_hqt1t"]
+[ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="4_bmu0a"]
 
 [node name="WhyNoAds" type="Node2D"]
 script = ExtResource("1_5kvg4")
@@ -109,8 +109,8 @@ text = "Dismiss"
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Dismiss" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("6_hqt1t")
+[node name="Button" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_bmu0a")
 bus = &"Effects"
 
 [connection signal="pressed" from="Contents/MarginContainer/VBoxContainer2/Dismiss" to="." method="_on_dismiss_pressed"]

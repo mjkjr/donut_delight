@@ -1,0 +1,10 @@
+Source: https://bdragon1727.itch.io/750-effect-and-fx-pixel-all
+
+LICENSE: FREE
+
+    Free to use on non-commercial games.
+    If you will be using on a commercial game, please contribute (any value).
+    Modify as desired.
+    You cannot do:
+    Resell / redistribute this asset.
+

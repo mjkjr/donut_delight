@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bystc1w4meaoh"
-path="res://.godot/imported/finger_up.png-549f5f632369f0861ecb0cebf940bc0b.ctex"
+uid="uid://cvor5s5v86sac"
+path="res://.godot/imported/donut09.png-5dbfdef0a54694c04e73c6fe017dbff8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/finger_up.png"
-dest_files=["res://.godot/imported/finger_up.png-549f5f632369f0861ecb0cebf940bc0b.ctex"]
+source_file="res://assets/gds/donuts/donut09.png"
+dest_files=["res://.godot/imported/donut09.png-5dbfdef0a54694c04e73c6fe017dbff8.ctex"]
 
 [params]
 

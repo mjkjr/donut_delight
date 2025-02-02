@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dy5afjyp6vkr8"]
 
 [ext_resource type="Script" path="res://scenes/menus/settings_menu.gd" id="1_544s8"]
-[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_jylg5"]
+[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/gds/bg/bg.png" id="2_jylg5"]
 [ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_qohli"]
-[ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="4_av3kl"]
+[ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="4_klvsa"]
 
 [node name="SettingsMenu" type="Node2D"]
 script = ExtResource("1_544s8")
@@ -217,8 +217,8 @@ text = "Back"
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Dismiss" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("4_av3kl")
+[node name="Button" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_klvsa")
 bus = &"Effects"
 
 [connection signal="drag_ended" from="Contents/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer1/VolumeMaster" to="." method="_on_master_volume_drag_ended"]

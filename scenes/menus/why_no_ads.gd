@@ -18,7 +18,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_dismiss_pressed() -> void:
-	$Audio/Dismiss.play()
+	$Audio/Button.play()
 	# fade out and self-destruct
 	var tween = get_tree().create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)

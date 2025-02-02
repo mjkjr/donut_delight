@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx88st4cww3sc"
-path="res://.godot/imported/donut04.png-aaf2726ff89663348a32e6c0e846e077.ctex"
+uid="uid://cvp8lqpf7gl70"
+path="res://.godot/imported/greg.png-46d07d9ff3b8a4a66f312316e107d31d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/donut04.png"
-dest_files=["res://.godot/imported/donut04.png-aaf2726ff89663348a32e6c0e846e077.ctex"]
+source_file="res://assets/greg/greg.png"
+dest_files=["res://.godot/imported/greg.png-46d07d9ff3b8a4a66f312316e107d31d.ctex"]
 
 [params]
 

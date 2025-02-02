@@ -10,7 +10,6 @@ extends Node
 ## PRE-RELEASE
 ## ATTENTION: Add icons for andriod version
 ## TODO: Take screen shots
-## TODO: Organize license files
 ## ATTENTION: Export and test android version
 
 

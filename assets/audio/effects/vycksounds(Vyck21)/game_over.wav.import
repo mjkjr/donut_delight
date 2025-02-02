@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://kuy6801ggcrr"
-path="res://.godot/imported/game_over.wav-14084e15e7f1865de305f6e9c7c0787b.sample"
+path="res://.godot/imported/game_over.wav-34b245d221396190bdefa690391c8151.sample"
 
 [deps]
 
-source_file="res://assets/audio/effects/game_over.wav"
-dest_files=["res://.godot/imported/game_over.wav-14084e15e7f1865de305f6e9c7c0787b.sample"]
+source_file="res://assets/audio/effects/vycksounds(Vyck21)/game_over.wav"
+dest_files=["res://.godot/imported/game_over.wav-34b245d221396190bdefa690391c8151.sample"]
 
 [params]
 

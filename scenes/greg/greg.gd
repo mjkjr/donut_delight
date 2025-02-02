@@ -6,7 +6,7 @@ extends Node2D
 # emits when Greg leaves the viewport
 signal off_screen
 
-const GREG_SLIME_TRAIL = preload("res://assets/greg_slime_trail.png")
+const GREG_SLIME_TRAIL = preload("res://assets/greg/greg_slime_trail.png")
 
 
 func _process(_delta: float) -> void:

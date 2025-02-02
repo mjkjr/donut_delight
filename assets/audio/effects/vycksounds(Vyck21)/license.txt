@@ -1,0 +1,14 @@
+Spaceship_SFX
+
+Format: 24bits 48Khz WAV.
+
+Loop and "one shot" sounds.
+
+Use it to edit sounds (like Audacity or Reaper) or directly put it in your game. 
+
+*You can use these files with your projects for non-commercial or commercial purpose. Altought you can not sell them alone as they are, even after modifying ones.
+
+*If you ever use one of these sounds for your projects, credit with "vycksounds(Vyck21)" is very appreciated ! =)
+
+https://vyck21.itch.io/spaceship-sfx
+

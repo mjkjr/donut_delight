@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/menus/game_over_menu.gd" id="1_jb5j3"]
 [ext_resource type="FontFile" uid="uid://bu1alfevqdkvo" path="res://assets/fonts/londrina/LondrinaSolid-Regular.otf" id="3_kyx0o"]
 [ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_w5opt"]
-[ext_resource type="AudioStream" uid="uid://kuy6801ggcrr" path="res://assets/audio/effects/game_over.wav" id="5_lx26k"]
-[ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="5_yakjb"]
+[ext_resource type="AudioStream" uid="uid://kuy6801ggcrr" path="res://assets/audio/effects/vycksounds(Vyck21)/game_over.wav" id="5_lx26k"]
+[ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="5_yakjb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2w6nh"]
 font = ExtResource("3_kyx0o")

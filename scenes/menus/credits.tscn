@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://pi8eennu0lfr"]
 
 [ext_resource type="Script" path="res://scenes/menus/credits.gd" id="1_m41ku"]
-[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/bg.png" id="2_dbumv"]
-[ext_resource type="Texture2D" uid="uid://cvp8lqpf7gl70" path="res://assets/greg.png" id="2_ksmff"]
+[ext_resource type="Texture2D" uid="uid://8r46jivoueb8" path="res://assets/gds/bg/bg.png" id="2_dbumv"]
+[ext_resource type="Texture2D" uid="uid://cvp8lqpf7gl70" path="res://assets/greg/greg.png" id="2_ksmff"]
 [ext_resource type="PackedScene" uid="uid://ci23incsprkk3" path="res://scenes/greg/greg.tscn" id="3_0lf0l"]
 [ext_resource type="Theme" uid="uid://cbs1608u20kwu" path="res://themes/theme.tres" id="3_2y6nc"]
-[ext_resource type="AudioStream" uid="uid://c4ypmkekob5xk" path="res://assets/audio/effects/JDSherbert - Ultimate UI SFX Pack - Popup Close - 1.wav" id="5_o37ff"]
+[ext_resource type="AudioStream" uid="uid://cvk6bitav44n1" path="res://assets/audio/effects/JDSherbert/JDSherbert - Ultimate UI SFX Pack - Cursor - 1.wav" id="6_8oa0l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xwewd"]
 
@@ -133,8 +133,8 @@ position = Vector2(-22, 1923)
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="Dismiss" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("5_o37ff")
+[node name="Button" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("6_8oa0l")
 bus = &"Effects"
 
 [connection signal="pressed" from="Contents/MarginContainer/VBoxContainer/Dismiss" to="." method="_on_dismiss_pressed"]
