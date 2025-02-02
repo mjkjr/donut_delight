@@ -21,7 +21,7 @@ https://mjkjr.itch.io/donut_delight
 - Additional Artwork: [BDragon1727](https://bdragon1727.itch.io), Michael J. Kozubal Jr., Aurelia Kozubal
 - Fonts: Font [Squirrel](https://www.fontsquirrel.com/)
 - Sound Effects: [JDSherbert](https://jdsherbert.itch.io/)
-- Additional Sound Effects: vycksounds(Vyck21), Michael J. Kozubal Jr.
+- Additional Sound Effects: [vycksounds(Vyck21)](https://vyck21.itch.io/), Michael J. Kozubal Jr.
 - Background Music: [Jeremy Leaird-Koch / Red Means Recording](https://jjbbllkk.itch.io/)
 - Play Testing: Aurelia Kozubal
 - Special Thanks: Dragos Daian / SoftBody2D (https://softbody2d.appsinacup.com/)
