@@ -28,7 +28,7 @@ https://mjkjr.itch.io/donut_delight
 
 ## 📄 Licenses
 
-This software is released under the terms of the MIT License (see license.txt).
+This software is released under the terms of the [MIT License](/license.txt).
 
 The rights to the design and artwork is reserved. Additional artwork, audio, etc
 may be subject to additional terms, see their respective licenses for details.
