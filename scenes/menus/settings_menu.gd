@@ -65,3 +65,5 @@ func _on_screen_flash_button_toggled(toggled_on: bool) -> void:
 
 func _on_reset_tutorial_pressed() -> void:
 	Global.tutorial_watched = false
+	%ResetTutorial.disabled = true
+	%ResetTutorial.text = "Tutorial Reset"
