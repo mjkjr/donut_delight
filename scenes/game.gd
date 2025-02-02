@@ -3,10 +3,6 @@ extends Node
 ##
 ## A cute donut merging game
 
-## BUGS
-## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
-## try switching to an AnimationPlayer for initial scale on spawn
-
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
 const GAME_OVER_MENU = preload("res://scenes/menus/game_over_menu.tscn")
@@ -121,12 +117,9 @@ func drop_item() -> void:
 	var tween = %Spawner.create_tween()
 	tween.tween_property(%Spawner, "modulate", Color(1, 1, 1, 0), 0.25)
 	tween.tween_interval(1)
-	tween.tween_callback(
-		func():
-			%Boundaries/Top.monitoring = true
-			make_next_item_current()
-	)
+	tween.tween_callback(func(): make_next_item_current())
 	tween.tween_property(%Spawner, "modulate", Color(1, 1, 1, 1), 0.25)
+	tween.tween_callback(func(): %Boundaries/Top.monitoring = true)
 
 
 func make_next_item_current() -> void:
@@ -159,9 +152,6 @@ func spawn_object(index: int, position: Vector2) -> void:
 	new_object.position = position
 	bind_softbody_collision(new_object)
 	new_object.get_node("AnimationPlayer").play("spawn")
-	#var tween = new_object.create_tween()
-	#tween.tween_property(new_object, "scale", Vector2(0.05, 0.05), 0)
-	#tween.tween_property(new_object, "scale", Vector2(1, 1), 0.2)
 
 
 func bind_softbody_collision(object: Node2D) -> void:
