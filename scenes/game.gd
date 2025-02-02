@@ -11,6 +11,7 @@ extends Node
 ## ATTENTION: Add icons for andriod version
 ## TODO: Take screen shots
 ## ATTENTION: Export and test android version
+## TODO: Record a video for youtube
 
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
