@@ -25,3 +25,10 @@ https://mjkjr.itch.io/donut_delight
 - Background Music: [Jeremy Leaird-Koch / Red Means Recording](https://jjbbllkk.itch.io/)
 - Play Testing: Aurelia Kozubal
 - Special Thanks: Dragos Daian / SoftBody2D (https://softbody2d.appsinacup.com/)
+
+## 📄 Licenses
+
+This software is released under the terms of the MIT License (see license.txt).
+
+Subcomponents of this software such as audio, artwork, etc may be subject to
+additional terms, see their respective licenses for details.
