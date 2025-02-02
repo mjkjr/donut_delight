@@ -24,7 +24,7 @@ https://mjkjr.itch.io/donut_delight
 - Additional Sound Effects: [vycksounds](https://vyck21.itch.io/), Michael J. Kozubal Jr.
 - Background Music: [Jeremy Leaird-Koch / Red Means Recording](https://jjbbllkk.itch.io/)
 - Play Testing: Aurelia Kozubal
-- Special Thanks: Dragos Daian / SoftBody2D (https://softbody2d.appsinacup.com/)
+- Special Thanks: Dragos Daian / [SoftBody2D](https://softbody2d.appsinacup.com/)
 
 ## 📄 Licenses
 
