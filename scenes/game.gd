@@ -9,7 +9,6 @@ extends Node
 
 ## PRE-RELEASE
 ## ATTENTION: Add icons for andriod version
-## TODO: Take screen shots
 ## ATTENTION: Export and test android version
 ## TODO: Record a video for youtube
 
