@@ -7,11 +7,6 @@ extends Node
 ## CRITICAL BUG: merging sometimes causes softbody blob (more common in web version)
 ## try switching to an AnimationPlayer for initial scale on spawn
 
-## PRE-RELEASE
-## ATTENTION: Add icons for andriod version
-## ATTENTION: Export and test android version
-## TODO: Record a video for youtube
-
 
 const PAUSE_MENU = preload("res://scenes/menus/pause_menu.tscn")
 const GAME_OVER_MENU = preload("res://scenes/menus/game_over_menu.tscn")
