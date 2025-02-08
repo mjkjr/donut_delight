@@ -11,6 +11,7 @@ const WHY_NO_ADS = preload("res://scenes/menus/why_no_ads.tscn")
 func _ready() -> void:
 	Global.score = 0
 	Global.play_music_track()
+	%Version.text = ProjectSettings.get_setting("application/config/version")
 	# set the initial alpha to fully transparent then fade in
 	$Contents.modulate.a = 0
 	var tween = get_tree().create_tween()

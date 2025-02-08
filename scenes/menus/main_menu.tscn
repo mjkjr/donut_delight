@@ -46,7 +46,10 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(1080, 1920)
 offset_right = 1080.0
 offset_bottom = 1920.0
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Contents/MarginContainer"]
 layout_mode = 2
@@ -106,6 +109,15 @@ text = "Credits"
 layout_mode = 2
 theme = ExtResource("3_3cjaw")
 text = "Why No Ads?"
+
+[node name="Version" type="Label" parent="Contents/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("3_3cjaw")
+text = "VERSION"
+horizontal_alignment = 2
 
 [node name="Audio" type="Node" parent="."]
 
