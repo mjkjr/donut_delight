@@ -119,7 +119,6 @@ func drop_item() -> void:
 	tween.tween_interval(1)
 	tween.tween_callback(func(): make_next_item_current())
 	tween.tween_property(%Spawner, "modulate", Color(1, 1, 1, 1), 0.25)
-	tween.tween_callback(func(): %Boundaries/Top.monitoring = true)
 
 
 func make_next_item_current() -> void:
@@ -131,9 +130,15 @@ func make_next_item_current() -> void:
 	current_item.position.y = 250
 	bind_softbody_collision(current_item)
 	var tween = current_item.create_tween()
-	tween.tween_property(current_item, "scale", Vector2(2, 2), 0)
-	tween.tween_property(current_item, "scale", Vector2(1, 1), 0.25)
-	tween.tween_callback(func(): player_control_active = true)
+	tween.tween_property(current_item.get_node("Sprite2D"), "scale", Vector2(2, 2), 0)
+	tween.tween_property(current_item.get_node("Sprite2D"), "scale", Vector2(1, 1), 0.25)
+	tween.tween_callback(
+		func():
+			current_item.get_node("Sprite2D").visible = false
+			current_item.get_node("SoftBody2D").visible = true
+			%Boundaries/Top.monitoring = true
+			player_control_active = true
+	)
 	spawn_next_item()
 
 
@@ -150,8 +155,8 @@ func spawn_object(index: int, position: Vector2) -> void:
 	%Gameplay.add_child(new_object)
 	objects[new_object.get_path()] = index
 	new_object.position = position
-	bind_softbody_collision(new_object)
 	new_object.get_node("AnimationPlayer").play("spawn")
+	bind_softbody_collision(new_object)
 
 
 func bind_softbody_collision(object: Node2D) -> void:
