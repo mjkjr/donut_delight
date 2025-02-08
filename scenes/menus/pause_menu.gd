@@ -9,6 +9,7 @@ const LEAVE_GAME_MENU = preload("res://scenes/menus/leave_game_menu.tscn")
 
 
 func _ready() -> void:
+	%Version.text = ProjectSettings.get_setting("application/config/version")
 	# set the initial alpha to fully transparent then fade in
 	$Background.modulate.a = 0
 	$Contents.modulate.a = 0
